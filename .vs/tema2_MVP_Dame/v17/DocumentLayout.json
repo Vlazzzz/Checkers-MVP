@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|d:\\facultate\\ii\\sem ii\\mvp\\tema1_dictionar\\checkers-mvp\\tema2_mvp_dame\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|solutionrelative:tema2_mvp_dame\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Player.cs",
+              "DocumentMoniker": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Player.cs",
+              "RelativeDocumentMoniker": "tema2_MVP_Dame\\Player.cs",
+              "ToolTip": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Player.cs",
+              "RelativeToolTip": "tema2_MVP_Dame\\Player.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T10:43:20.791Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

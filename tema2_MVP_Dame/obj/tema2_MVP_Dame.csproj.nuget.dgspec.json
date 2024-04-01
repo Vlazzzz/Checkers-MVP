@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\facultate\\II\\SEM II\\MVP\\tema2_MVP_Dame\\tema2_MVP_Dame\\tema2_MVP_Dame.csproj": {}
+    "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\tema2_MVP_Dame.csproj": {}
   },
   "projects": {
-    "D:\\facultate\\II\\SEM II\\MVP\\tema2_MVP_Dame\\tema2_MVP_Dame\\tema2_MVP_Dame.csproj": {
+    "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\tema2_MVP_Dame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\facultate\\II\\SEM II\\MVP\\tema2_MVP_Dame\\tema2_MVP_Dame\\tema2_MVP_Dame.csproj",
+        "projectUniqueName": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\tema2_MVP_Dame.csproj",
         "projectName": "tema2_MVP_Dame",
-        "projectPath": "D:\\facultate\\II\\SEM II\\MVP\\tema2_MVP_Dame\\tema2_MVP_Dame\\tema2_MVP_Dame.csproj",
+        "projectPath": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\tema2_MVP_Dame.csproj",
         "packagesPath": "C:\\Users\\vladu\\.nuget\\packages\\",
-        "outputPath": "D:\\facultate\\II\\SEM II\\MVP\\tema2_MVP_Dame\\tema2_MVP_Dame\\obj\\",
+        "outputPath": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vladu\\AppData\\Roaming\\NuGet\\NuGet.Config",

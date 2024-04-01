@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "tema2_MVP_Dame/1.0.0": {
+        "runtime": {
+          "tema2_MVP_Dame.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "tema2_MVP_Dame/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
