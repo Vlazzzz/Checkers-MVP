@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\facultate\\II\\SEM II\\MVP\\tema2_MVP_Dame\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|d:\\facultate\\ii\\sem ii\\mvp\\tema2_mvp_dame\\tema2_mvp_dame\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|solutionrelative:tema2_mvp_dame\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|d:\\facultate\\ii\\sem ii\\mvp\\tema2_mvp_dame\\tema2_mvp_dame\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|solutionrelative:tema2_mvp_dame\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|d:\\facultate\\ii\\sem ii\\mvp\\tema2_mvp_dame\\tema2_mvp_dame\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|solutionrelative:tema2_mvp_dame\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Player.cs",
+              "DocumentMoniker": "D:\\facultate\\II\\SEM II\\MVP\\tema2_MVP_Dame\\tema2_MVP_Dame\\Player.cs",
+              "RelativeDocumentMoniker": "tema2_MVP_Dame\\Player.cs",
+              "ToolTip": "D:\\facultate\\II\\SEM II\\MVP\\tema2_MVP_Dame\\tema2_MVP_Dame\\Player.cs",
+              "RelativeToolTip": "tema2_MVP_Dame\\Player.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T10:36:47.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\facultate\\II\\SEM II\\MVP\\tema2_MVP_Dame\\tema2_MVP_Dame\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "tema2_MVP_Dame\\MainWindow.xaml",
+              "ToolTip": "D:\\facultate\\II\\SEM II\\MVP\\tema2_MVP_Dame\\tema2_MVP_Dame\\MainWindow.xaml",
+              "RelativeToolTip": "tema2_MVP_Dame\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-01T10:35:52.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\facultate\\II\\SEM II\\MVP\\tema2_MVP_Dame\\tema2_MVP_Dame\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "tema2_MVP_Dame\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\facultate\\II\\SEM II\\MVP\\tema2_MVP_Dame\\tema2_MVP_Dame\\MainWindow.xaml.cs",
+              "RelativeToolTip": "tema2_MVP_Dame\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T10:35:48.859Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
