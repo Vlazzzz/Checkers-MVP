@@ -5,8 +5,109 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:tema2_MVP_Dame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="600">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <!-- Definirea a opt coloane pentru grid -->
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <!-- Definirea a opt rânduri pentru grid -->
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
+        <!-- Buton pentru prima celulă -->
+        <Button Grid.Row="0" Grid.Column="0" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="0" Grid.Column="1" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="0" Grid.Column="2" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="0" Grid.Column="3" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="0" Grid.Column="4" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="0" Grid.Column="5" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="0" Grid.Column="6" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="0" Grid.Column="7" Content=" " Background="SaddleBrown"/>
+
+        <Button Grid.Row="1" Grid.Column="0" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="1" Grid.Column="1" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="1" Grid.Column="2" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="1" Grid.Column="3" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="1" Grid.Column="4" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="1" Grid.Column="5" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="1" Grid.Column="6" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="1" Grid.Column="7" Content=" " Background="SandyBrown"/>
+
+        <Button Grid.Row="2" Grid.Column="0" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="2" Grid.Column="1" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="2" Grid.Column="2" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="2" Grid.Column="3" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="2" Grid.Column="4" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="2" Grid.Column="5" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="2" Grid.Column="6" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="2" Grid.Column="7" Content=" " Background="SaddleBrown"/>
+
+        <Button Grid.Row="3" Grid.Column="0" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="3" Grid.Column="1" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="3" Grid.Column="2" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="3" Grid.Column="3" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="3" Grid.Column="4" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="3" Grid.Column="5" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="3" Grid.Column="6" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="3" Grid.Column="7" Content=" " Background="SandyBrown"/>
+
+        <Button Grid.Row="4" Grid.Column="0" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="4" Grid.Column="1" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="4" Grid.Column="2" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="4" Grid.Column="3" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="4" Grid.Column="4" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="4" Grid.Column="5" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="4" Grid.Column="6" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="4" Grid.Column="7" Content=" " Background="SaddleBrown"/>
+
+        <Button Grid.Row="5" Grid.Column="0" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="5" Grid.Column="1" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="5" Grid.Column="2" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="5" Grid.Column="3" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="5" Grid.Column="4" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="5" Grid.Column="5" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="5" Grid.Column="6" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="5" Grid.Column="7" Content=" " Background="SandyBrown"/>
+
+        <Button Grid.Row="6" Grid.Column="0" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="6" Grid.Column="1" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="6" Grid.Column="2" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="6" Grid.Column="3" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="6" Grid.Column="4" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="6" Grid.Column="5" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="6" Grid.Column="6" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="6" Grid.Column="7" Content=" " Background="SaddleBrown"/>
+
+        <Button Grid.Row="7" Grid.Column="0" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="7" Grid.Column="1" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="7" Grid.Column="2" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="7" Grid.Column="3" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="7" Grid.Column="4" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="7" Grid.Column="5" Content=" " Background="SandyBrown"/>
+        <Button Grid.Row="7" Grid.Column="6" Content=" " Background="SaddleBrown"/>
+        <Button Grid.Row="7" Grid.Column="7" Content=" " Background="SandyBrown"/>
+
+        <!-- Adăugați butoane pentru celelalte celule în funcție de necesități -->
+        <!-- De exemplu: -->
+        <!-- <Button Grid.Row="0" Grid.Column="1" Content=" " /> -->
+        <!-- <Button Grid.Row="0" Grid.Column="2" Content=" " /> -->
+        <!-- ... -->
+        <!-- <Button Grid.Row="7" Grid.Column="7" Content=" " /> -->
     </Grid>
 </Window>
