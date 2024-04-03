@@ -24,6 +24,9 @@ namespace tema2_MVP_Dame
         public MainViewModel()
         {
             Board = new Board();
+            Player player1 = new Player("Vlad", PieceColor.White);
+            Player player2 = new Player("Andrei", PieceColor.Red);
+
             MakeMoveCommand = new RelayCommand(MakeMove);
         }
 
@@ -36,6 +39,12 @@ namespace tema2_MVP_Dame
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        //create a function that will initialize the buttons from the checkers board by adding a source image on the buttons that will show the checkers pieces, which are images from my local resources
+        public void InitializeBoard()
+        {
+            
         }
     }
 }
