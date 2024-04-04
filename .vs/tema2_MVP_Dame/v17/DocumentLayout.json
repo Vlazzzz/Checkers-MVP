@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|d:\\facultate\\ii\\sem ii\\mvp\\tema1_dictionar\\checkers-mvp\\tema2_mvp_dame\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|solutionrelative:tema2_mvp_dame\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|d:\\facultate\\ii\\sem ii\\mvp\\tema1_dictionar\\checkers-mvp\\tema2_mvp_dame\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|solutionrelative:tema2_mvp_dame\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|d:\\facultate\\ii\\sem ii\\mvp\\tema1_dictionar\\checkers-mvp\\tema2_mvp_dame\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|solutionrelative:tema2_mvp_dame\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|d:\\facultate\\ii\\sem ii\\mvp\\tema1_dictionar\\checkers-mvp\\tema2_mvp_dame\\cellviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|solutionrelative:tema2_mvp_dame\\cellviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|d:\\facultate\\ii\\sem ii\\mvp\\tema1_dictionar\\checkers-mvp\\tema2_mvp_dame\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|solutionrelative:tema2_mvp_dame\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|d:\\facultate\\ii\\sem ii\\mvp\\tema1_dictionar\\checkers-mvp\\tema2_mvp_dame\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|solutionrelative:tema2_mvp_dame\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|d:\\facultate\\ii\\sem ii\\mvp\\tema1_dictionar\\checkers-mvp\\tema2_mvp_dame\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|solutionrelative:tema2_mvp_dame\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|d:\\facultate\\ii\\sem ii\\mvp\\tema1_dictionar\\checkers-mvp\\tema2_mvp_dame\\piece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|solutionrelative:tema2_mvp_dame\\piece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|d:\\facultate\\ii\\sem ii\\mvp\\tema1_dictionar\\checkers-mvp\\tema2_mvp_dame\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|solutionrelative:tema2_mvp_dame\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|d:\\facultate\\ii\\sem ii\\mvp\\tema1_dictionar\\checkers-mvp\\tema2_mvp_dame\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,12 +39,8 @@
       "RelativeMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|solutionrelative:tema2_mvp_dame\\piececolor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|d:\\facultate\\ii\\sem ii\\mvp\\tema1_dictionar\\checkers-mvp\\tema2_mvp_dame\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|solutionrelative:tema2_mvp_dame\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|d:\\facultate\\ii\\sem ii\\mvp\\tema1_dictionar\\checkers-mvp\\tema2_mvp_dame\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|solutionrelative:tema2_mvp_dame\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|d:\\facultate\\ii\\sem ii\\mvp\\tema1_dictionar\\checkers-mvp\\tema2_mvp_dame\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332F183B-15AF-445B-BD8F-1EFACE3A9E37}|tema2_MVP_Dame\\tema2_MVP_Dame.csproj|solutionrelative:tema2_mvp_dame\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +54,33 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
+              "Title": "CellViewModel.cs",
+              "DocumentMoniker": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\CellViewModel.cs",
+              "RelativeDocumentMoniker": "tema2_MVP_Dame\\CellViewModel.cs",
+              "ToolTip": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\CellViewModel.cs",
+              "RelativeToolTip": "tema2_MVP_Dame\\CellViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T10:16:01.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Cell.cs",
+              "DocumentMoniker": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Cell.cs",
+              "RelativeDocumentMoniker": "tema2_MVP_Dame\\Cell.cs",
+              "ToolTip": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Cell.cs",
+              "RelativeToolTip": "tema2_MVP_Dame\\Cell.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T10:15:41.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\MainWindow.xaml",
               "RelativeDocumentMoniker": "tema2_MVP_Dame\\MainWindow.xaml",
@@ -58,45 +92,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "RelayCommand.cs",
               "DocumentMoniker": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\RelayCommand.cs",
               "RelativeDocumentMoniker": "tema2_MVP_Dame\\RelayCommand.cs",
               "ToolTip": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\RelayCommand.cs",
               "RelativeToolTip": "tema2_MVP_Dame\\RelayCommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T12:54:49.127Z"
+              "WhenOpened": "2024-04-01T12:54:49.127Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "tema2_MVP_Dame\\MainWindow.xaml.cs",
               "ToolTip": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\MainWindow.xaml.cs",
               "RelativeToolTip": "tema2_MVP_Dame\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAkAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABcAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-01T12:49:16.909Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "MainViewModel.cs",
               "DocumentMoniker": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\MainViewModel.cs",
               "RelativeDocumentMoniker": "tema2_MVP_Dame\\MainViewModel.cs",
               "ToolTip": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\MainViewModel.cs",
               "RelativeToolTip": "tema2_MVP_Dame\\MainViewModel.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAA8wCsAAAA4AAAA",
+              "ViewState": "AQIAACkAAAAAAAAAAAAqwDQAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-01T12:49:05.488Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Piece.cs",
               "DocumentMoniker": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Piece.cs",
               "RelativeDocumentMoniker": "tema2_MVP_Dame\\Piece.cs",
@@ -109,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "Board.cs",
               "DocumentMoniker": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Board.cs",
               "RelativeDocumentMoniker": "tema2_MVP_Dame\\Board.cs",
@@ -117,31 +152,30 @@
               "RelativeToolTip": "tema2_MVP_Dame\\Board.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T10:54:26.532Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-01T10:54:26.532Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "PieceColor.cs",
               "DocumentMoniker": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\PieceColor.cs",
               "RelativeDocumentMoniker": "tema2_MVP_Dame\\PieceColor.cs",
               "ToolTip": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\PieceColor.cs",
               "RelativeToolTip": "tema2_MVP_Dame\\PieceColor.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAA+wAQAAAABAAAA",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAqwAQAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-01T10:49:34.783Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Player.cs",
               "DocumentMoniker": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Player.cs",
               "RelativeDocumentMoniker": "tema2_MVP_Dame\\Player.cs",
               "ToolTip": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Player.cs",
               "RelativeToolTip": "tema2_MVP_Dame\\Player.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABRAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-01T10:43:20.791Z",
               "EditorCaption": ""

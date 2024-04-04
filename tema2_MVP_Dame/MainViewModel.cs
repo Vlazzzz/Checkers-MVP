@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 
@@ -17,6 +18,8 @@ namespace tema2_MVP_Dame
             }
         }
 
+        public ObservableCollection<CellViewModel> Cells { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ICommand MakeMoveCommand { get; private set; }
@@ -27,24 +30,38 @@ namespace tema2_MVP_Dame
             Player player1 = new Player("Vlad", PieceColor.White);
             Player player2 = new Player("Andrei", PieceColor.Red);
 
+            // Initializează comanda pentru a efectua o mutare
             MakeMoveCommand = new RelayCommand(MakeMove);
+
+            // Inițializează celulele tablei de joc
+            InitializeBoard();
         }
 
         private void MakeMove(object parameter)
         {
-            //iau linia si coloana de start si de final in urma click-ului pe tabla
-            board.MakeMove(0, 0, 1, 1);
+            // Logică pentru a efectua o mutare pe tabla de joc
+            // (poate fi adăugată aici sau într-o altă metodă, în funcție de necesități)
+        }
+
+        private void InitializeBoard()
+        {
+            Cells = new ObservableCollection<CellViewModel>();
+
+            // Adaugă celulele în colecția de celule
+            for (int row = 0; row < 8; row++)
+            {
+                for (int col = 0; col < 8; col++)
+                {
+                    // Creează o celulă și adaugă-o în colecție
+                    CellViewModel cellViewModel = new CellViewModel(new Cell(row, col));
+                    Cells.Add(cellViewModel);
+                }
+            }
         }
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        //create a function that will initialize the buttons from the checkers board by adding a source image on the buttons that will show the checkers pieces, which are images from my local resources
-        public void InitializeBoard()
-        {
-            
         }
     }
 }
