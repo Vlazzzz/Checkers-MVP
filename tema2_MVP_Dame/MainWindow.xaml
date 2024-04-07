@@ -3,31 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:tema2_MVP_Dame"
+        xmlns:local="clr-namespace:tema2_MVP_Dame" 
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="600">
-    <Grid Margin="130,125,0,-6">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="449*"/>
-            <ColumnDefinition Width="23*"/>
-        </Grid.ColumnDefinitions>
-        <Grid Margin="-67,-60,44,60">
-            <Grid.Background>
-                <ImageBrush ImageSource="D:\facultate\II\SEM II\MVP\tema2_MVP_Dame\Resurse\table2.jpg"/>
-            </Grid.Background>
 
-            <ItemsControl ItemsSource="{Binding Cells}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <UniformGrid Columns="8"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Button Content=" " Background="SaddleBrown"/>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </Grid>
+    <Grid x:Name="TableGrid" Margin="98,79,76,69">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="466*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="D:\facultate\II\SEM II\MVP\tema2_MVP_Dame\Resurse\table3.jpg"/>
+        </Grid.Background>
+
+        <ItemsControl ItemsSource="{Binding Cells}" Margin="0,1,0,0" Grid.RowSpan="2">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="8" Columns="8"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding CellModel.Piece.ImagePath}" Stretch="Fill"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </Window>

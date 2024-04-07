@@ -1,5 +1,6 @@
 ﻿public enum PieceColor
 {
     White,
-    Red
+    Black,
+    Empty
 }

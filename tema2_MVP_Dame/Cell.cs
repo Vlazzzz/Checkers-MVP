@@ -10,7 +10,7 @@
         {
             Row = row;
             Column = column;
-            Piece = null; // Initially no piece on the cell
+            Piece = new Piece(PieceColor.Empty); // Initially no piece on the cell
         }
     }
 }
