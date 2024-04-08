@@ -2,5 +2,6 @@
 {
     White,
     Black,
-    Empty
+    Empty,
+    IsHighlighted
 }

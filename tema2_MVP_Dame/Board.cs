@@ -54,5 +54,23 @@ namespace tema2_MVP_Dame
         {
             return GetEnumerator();
         }
+
+        internal void MovePiece(Cell sourceCell, Cell targetCell)
+        {
+            //daca mutarea este vida, muta piesa
+            targetCell.Piece.Color = sourceCell.Piece.Color;
+            sourceCell.Piece.Color = PieceColor.Empty;
+        }
+
+        public Piece GetPiece(int row, int column)
+        {
+            return squares[row, column].Piece;
+        }
+
+        //implement get cell method
+        public Cell GetCell(int row, int column)
+        {
+            return squares[row, column];
+        }
     }
 }

@@ -23,5 +23,12 @@ namespace tema2_MVP_Dame
             viewModel = new MainViewModel();
             DataContext = viewModel;
         }
+
+        //private void Cell_MouseDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    Image clickedImage = (Image)sender;
+        //    CellViewModel clickedCellViewModel = (CellViewModel)clickedImage.DataContext;
+        //    viewModel.CellClickCommand.Execute(clickedCellViewModel);
+        //}
     }
 }

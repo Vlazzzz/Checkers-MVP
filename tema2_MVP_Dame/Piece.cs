@@ -17,9 +17,13 @@ namespace tema2_MVP_Dame
             {
                 ImagePath = "D:\\facultate\\II\\SEM II\\MVP\\tema2_MVP_Dame\\Resurse\\black_piece.png";
             }
-            else
+            else if (color == PieceColor.Empty)
             {
                 ImagePath = "D:\\facultate\\II\\SEM II\\MVP\\tema2_MVP_Dame\\Resurse\\empty.png";
+            }
+            else
+            {
+                ImagePath = "D:\\facultate\\II\\SEM II\\MVP\\tema2_MVP_Dame\\Resurse\\x_shape.png";
             }
         }
     }

@@ -16,12 +16,17 @@
             <ImageBrush ImageSource="D:\facultate\II\SEM II\MVP\tema2_MVP_Dame\Resurse\table3.jpg"/>
         </Grid.Background>
 
+
+        <UniformGrid x:Name="HighlightGrid" Rows="8" Columns="8"></UniformGrid>
+
         <ItemsControl ItemsSource="{Binding Cells}" Margin="0,1,0,0" Grid.RowSpan="2">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Rows="8" Columns="8"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
+
+            
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
