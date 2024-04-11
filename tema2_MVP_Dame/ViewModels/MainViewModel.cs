@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
+using ICommandDemoAgain.Commands;
 using tema2_MVP_Dame.Models;
 
 namespace tema2_MVP_Dame.ViewModels
@@ -12,6 +13,7 @@ namespace tema2_MVP_Dame.ViewModels
     {
         private Game game;
         public ICommand CellClickCommand { get; private set; }
+        public static bool CanExecute() => true;
 
         public ObservableCollection<Cell> Cells { get; set; }
 
@@ -30,11 +32,14 @@ namespace tema2_MVP_Dame.ViewModels
             UpdateCells();
         }
 
+        //imi iau 2 variabile pt click... cand prima e null, o modific si afisez pozitiile highlighted si dupa la al doilea click fac miscarea
         private void CellClick(object parameter)
         {
             // Logic for handling click on the cell
             Cell clickedCell = (Cell)parameter;
             // Perform actions with the clicked cell
+            game.MovePiece(2, 1, 3, 2);
+            UpdateCells();
         }
 
         void UpdateCells()
