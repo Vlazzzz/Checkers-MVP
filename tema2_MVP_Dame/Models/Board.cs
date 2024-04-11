@@ -55,11 +55,14 @@ namespace tema2_MVP_Dame.Models
             return GetEnumerator();
         }
 
-        internal void MovePiece(int souceRow, int sourceColumn, int targetRow, int targetColumn)
+        internal void MovePiece(int sourceRow, int sourceColumn, int targetRow, int targetColumn)
         {
             //daca mutarea este vida, muta piesa
-            //targetCell.Piece.Color = sourceCell.Piece.Color;
-            //sourceCell.Piece.Color = EPiece.Empty;
+            Piece sourcePiece = GetPiece(sourceRow, sourceColumn);
+            Piece targetPiece = GetPiece(targetRow, targetColumn);
+
+            targetPiece.Color = sourcePiece.Color;
+            sourcePiece.Color = EPiece.Empty;
         }
 
         public Piece GetPiece(int row, int column)

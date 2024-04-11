@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 using tema2_MVP_Dame.Models;
@@ -10,7 +11,7 @@ namespace tema2_MVP_Dame.ViewModels
     public class MainViewModel : BaseViewModel
     {
         private Game game;
-        //public ICommand CellClickCommand { get; private set; }
+        public ICommand CellClickCommand { get; private set; }
 
         public ObservableCollection<Cell> Cells { get; set; }
 
@@ -23,8 +24,17 @@ namespace tema2_MVP_Dame.ViewModels
 
             // Initialize the observable collection of cells with the cells from the game board
             Cells = new ObservableCollection<Cell>();
-            game.ShowPotentialMoves(2,1);
+            CellClickCommand = new RelayCommand(CellClick);
+            //game.MovePiece(2, 1, 3, 2);
+            //game.ShowPotentialMoves(2, 3);
             UpdateCells();
+        }
+
+        private void CellClick(object parameter)
+        {
+            // Logic for handling click on the cell
+            Cell clickedCell = (Cell)parameter;
+            // Perform actions with the clicked cell
         }
 
         void UpdateCells()
@@ -54,31 +64,6 @@ namespace tema2_MVP_Dame.ViewModels
                     }
                 }
             }
-        }
-
-        //private void CellClick(object parameter)
-        //{
-        //    // Logic for handling click on the cell
-        //    CellViewModel clickedCell = (CellViewModel)parameter;
-        //    gameVM.Game.ShowPotentialMoves(clickedCell.CellModel);
-        //}
-
-        //private void Cell_MouseDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    // Obțineți celula asociată evenimentului de click
-        //    if (sender is FrameworkElement element && element.DataContext is CellViewModel cellViewModel)
-        //    {
-        //        Cell clickedCell = cellViewModel.CellModel;
-
-        //        // Apelați metoda pentru a gestiona acțiunea de click pe celulă
-        //        gameVM.Game.ShowPotentialMoves(clickedCell);
-
-        //    }
-        //}
-
-        private void MakeMove(object parameter)
-        {
-            // Logic for making a move on the game board
         }
     }
 

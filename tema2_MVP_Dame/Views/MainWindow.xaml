@@ -29,9 +29,16 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Image Source="{Binding ImagePath}" Stretch="Fill"/>
+                    <Image Source="{Binding ImagePath}" Stretch="Fill">
+                        <Image.InputBindings>
+                            <MouseBinding Gesture="LeftClick" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}, Path=DataContext.CellClickCommand}" CommandParameter="{Binding}"/>
+                        </Image.InputBindings>
+                    </Image>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+
+
+
     </Grid>
 </Window>

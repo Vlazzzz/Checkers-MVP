@@ -12,9 +12,6 @@ using tema2_MVP_Dame.ViewModels;
 
 namespace tema2_MVP_Dame
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private MainViewModel viewModel;
@@ -22,12 +19,5 @@ namespace tema2_MVP_Dame
         {
             InitializeComponent();
         }
-
-        //private void Cell_MouseDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    Image clickedImage = (Image)sender;
-        //    CellViewModel clickedCellViewModel = (CellViewModel)clickedImage.DataContext;
-        //    viewModel.CellClickCommand.Execute(clickedCellViewModel);
-        //}
     }
 }
