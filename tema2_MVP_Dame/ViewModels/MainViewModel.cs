@@ -45,45 +45,41 @@ namespace tema2_MVP_Dame.ViewModels
         {
             // Logic for handling click on the cell
             Cell clickedCell = (Cell)parameter;
-
             if (!firstClick)
             {
-                firstClick = true;
                 firstRow = clickedCell.Row;
                 firstColumn = clickedCell.Column;
+                firstClick = true;
             }
-            else if(firstClick && !secondClick)
+
+            else if (firstClick && !secondClick)
             {
-                secondClick = true;
                 secondRow = clickedCell.Row;
                 secondColumn = clickedCell.Column;
+                secondClick = true;
             }
 
-            //if(firstClick && !secondClick)
-            //{ if(game.getPiece(firstRow, firstColumn).Color == EPiece.empty)
-            //  { firstClick = false; secondClick = false; firstRow=-1, firstColumn=-1, secondRow=-1, secondColumn=-1 return; }
-
-
-            //daca primul click e null modific primele coordonate, altfel, daca al doilea click e null, modific al doilea click si afisez mutarile posibile
-
+            if (firstRow == secondRow && firstColumn == secondColumn)
+            {
+                firstClick = false;
+                secondClick = false;
+            }
 
             if (firstClick && !secondClick)
             {
                 if (game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.Black)
-                {
                     game.ShowPotentialMoves(firstRow, firstColumn);
-                }
                 else if (!game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White)
-                {
                     game.ShowPotentialMoves(firstRow, firstColumn);
-                }
                 else
                 {
                     firstClick = false;
                     secondClick = false;
-                    return;
+                    firstRow = -1;
+                    firstColumn = -1;
+                    secondRow = -1;
+                    secondColumn = -1;
                 }
-                UpdateCells();
             }
 
             if (firstClick && secondClick)
@@ -91,32 +87,26 @@ namespace tema2_MVP_Dame.ViewModels
                 if (game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.Black)
                 {
                     game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
-                    UpdateCells();
                     firstClick = false;
                     secondClick = false;
                     firstRow = -1;
                     firstColumn = -1;
                     secondRow = -1;
                     secondColumn = -1;
-                    //verificare pentru mutare multipla
-                    //if(firstClick != secondClick)
-                    //SwitchTurn(null);
                 }
-                else if (!game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White)
+
+                if (!game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White)
                 {
                     game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
-                    UpdateCells();
                     firstClick = false;
                     secondClick = false;
                     firstRow = -1;
                     firstColumn = -1;
                     secondRow = -1;
-                    secondColumn = -1;
-                    //verificare pentru mutare multipla
-                    //if(firstClick != secondClick)
-                    //SwitchTurn(null);
+
                 }
             }
+
             UpdateCells();
         }
 
