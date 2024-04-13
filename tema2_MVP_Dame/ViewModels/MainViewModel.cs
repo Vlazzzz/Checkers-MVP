@@ -91,30 +91,45 @@ namespace tema2_MVP_Dame.ViewModels
                     secondColumn = -1;
                 }
             }
-
+            //daca al doilea click e diferit de culoarea primei piese sau nu e highlighted, resetam al doilea click
             if (firstClick && secondClick)
             {
-                if (game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.Black)
+                if (game.GameBoard.GetPiece(secondRow, secondColumn).Color != EPiece.IsHighlighted)
                 {
-                    game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
-                    okMoved = true;
-                    firstClick = false;
                     secondClick = false;
-                    firstRow = -1;
-                    firstColumn = -1;
                     secondRow = -1;
                     secondColumn = -1;
                 }
+            }
 
-                if (!game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White)
+            //daca e tura lui negru si apas pe negru si dupa pe alb, desi nu am mutat nimic, se schimba tura. cum rezolv problema asta?
+
+            if (firstClick && secondClick)
+            {
+                if(game.GameBoard.GetPiece(secondRow, secondColumn).Color == EPiece.IsHighlighted)
                 {
-                    game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
-                    okMoved = true;
-                    firstClick = false;
-                    secondClick = false;
-                    firstRow = -1;
-                    firstColumn = -1;
-                    secondRow = -1;
+                    if (game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.Black)
+                    {
+                        game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
+                        okMoved = true;
+                        firstClick = false;
+                        secondClick = false;
+                        firstRow = -1;
+                        firstColumn = -1;
+                        secondRow = -1;
+                        secondColumn = -1;
+                    }
+
+                    if (!game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White)
+                    {
+                        game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
+                        okMoved = true;
+                        firstClick = false;
+                        secondClick = false;
+                        firstRow = -1;
+                        firstColumn = -1;
+                        secondRow = -1;
+                    }
                 }
             }
 

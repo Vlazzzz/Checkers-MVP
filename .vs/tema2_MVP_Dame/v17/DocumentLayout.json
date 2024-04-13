@@ -43,8 +43,7 @@
               "ViewState": "AQIAAGYAAAAAAAAAAAAewBEAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-13T08:44:25.904Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -57,8 +56,7 @@
               "ViewState": "AQIAADkAAAAAAAAAAAAEwEUAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-13T14:00:30.408Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -70,8 +68,7 @@
               "RelativeToolTip": "tema2_MVP_Dame\\Views\\MainWindow.xaml.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAQwBEAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-11T10:35:23.515Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T10:35:23.515Z"
             },
             {
               "$type": "Document",
@@ -82,8 +79,7 @@
               "ToolTip": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Views\\MainWindow.xaml",
               "RelativeToolTip": "tema2_MVP_Dame\\Views\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-10T10:02:13.976Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-10T10:02:13.976Z"
             },
             {
               "$type": "Document",
@@ -93,7 +89,7 @@
               "RelativeDocumentMoniker": "tema2_MVP_Dame\\ViewModels\\MainViewModel.cs",
               "ToolTip": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\ViewModels\\MainViewModel.cs",
               "RelativeToolTip": "tema2_MVP_Dame\\ViewModels\\MainViewModel.cs",
-              "ViewState": "AQIAAGIAAAAAAAAAAAAmwHQAAAAjAAAA",
+              "ViewState": "AQIAAFUAAAAAAAAAAAAUwGsAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-07T19:32:10.439Z",
               "EditorCaption": ""
