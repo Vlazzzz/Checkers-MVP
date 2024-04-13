@@ -13,6 +13,7 @@ namespace tema2_MVP_Dame.ViewModels
     {
         private Game game;
         public ICommand CellClickCommand { get; private set; }
+        public ICommand SwitchTurnCommand { get; private set; }
         public static bool CanExecute() => true;
 
         public ObservableCollection<Cell> Cells { get; set; }
@@ -27,9 +28,14 @@ namespace tema2_MVP_Dame.ViewModels
             // Initialize the observable collection of cells with the cells from the game board
             Cells = new ObservableCollection<Cell>();
             CellClickCommand = new RelayCommand(CellClick);
+            SwitchTurnCommand = new RelayCommand(SwitchTurn);
             //game.MovePiece(2, 1, 3, 2);
             //game.ShowPotentialMoves(2, 3);
             UpdateCells();
+        }
+        private void SwitchTurn(object parameter)
+        {
+            game.SwitchTurn();
         }
 
         //imi iau 2 variabile pt click... cand prima e null, o modific si afisez pozitiile highlighted si dupa la al doilea click fac miscarea
@@ -53,26 +59,63 @@ namespace tema2_MVP_Dame.ViewModels
                 secondColumn = clickedCell.Column;
             }
 
+           // if (firstClick == secondClick)
+            //{
+                //daca e acelasi click jocul considera ca mutarea a fost facuta si tura se schimba,
+                //doar ca in mod normal nu ar trebui sa se schimbe tura si ar trebui sa mai pot apasa o data pe alta pozitie highlighteata
+                //deci, trebuie sa fac o verificare inainte sa schimb tura
+
+           // }
+
             if (firstClick && !secondClick)
             {
-                game.ShowPotentialMoves(firstRow, firstColumn);
+                if (game.isBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.Black)
+                {
+                    game.ShowPotentialMoves(firstRow, firstColumn);
+                }
+                else if (!game.isBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White)
+                {
+                    game.ShowPotentialMoves(firstRow, firstColumn);
+                }
+                else
+                {
+                    firstClick = false;
+                    secondClick = false;
+                }
                 UpdateCells();
             }
 
             if (firstClick && secondClick)
             {
-                game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
-                UpdateCells();
-                firstClick = false;
-                secondClick = false;
-                firstRow = -1;
-                firstColumn = -1;
-                secondRow = -1;
-                secondColumn = -1;
+                if (game.isBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.Black)
+                {
+                    game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
+                    UpdateCells();
+                    firstClick = false;
+                    secondClick = false;
+                    firstRow = -1;
+                    firstColumn = -1;
+                    secondRow = -1;
+                    secondColumn = -1;
+                    //verificare pentru mutare multipla
+                    //if(firstClick != secondClick)
+                        //SwitchTurn(null);
+                }
+                else if (!game.isBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White)
+                {
+                    game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
+                    UpdateCells();
+                    firstClick = false;
+                    secondClick = false;
+                    firstRow = -1;
+                    firstColumn = -1;
+                    secondRow = -1;
+                    secondColumn = -1;
+                    //verificare pentru mutare multipla
+                    //if(firstClick != secondClick)
+                        //SwitchTurn(null);
+                }
             }
-
-            //game.MovePiece(2, 1, 3, 2);
-
             UpdateCells();
         }
 
@@ -107,3 +150,5 @@ namespace tema2_MVP_Dame.ViewModels
     }
 
 }
+
+// de implementat remiza

@@ -6,10 +6,17 @@
         public Player Player1 { get; set; }
         public Player Player2 { get; set; }
 
+        public bool isBlackTurn { get; set; }
+
         public Game()
         {
             // Inițializează tabla de joc
             GameBoard = new Board();
+            isBlackTurn = true; //black always starts
+        }
+        public void SwitchTurn()
+        {
+            isBlackTurn = !isBlackTurn;
         }
 
         private void ResetHighlightedCells()
@@ -26,10 +33,6 @@
 
         public void ShowPotentialMoves(int sourcePieceRow, int sourcePieceColumn)
         {
-            //make a function that shows the potential moves of a piece if it is white or black
-            //if the piece is white, it can move only down and to the left or right
-            //if the piece is black, it can move only up and to the left or right
-
             var piece = GameBoard.GetPiece(sourcePieceRow, sourcePieceColumn);
 
             ResetHighlightedCells();
@@ -51,6 +54,29 @@
                         GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
                     }
                 }
+
+                //verificare pentru capturarea piesei opuse
+                if (GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.Black)
+                {
+                    if (sourcePieceRow + 2 < 8 && sourcePieceColumn + 2 < 8)
+                    {
+                        if (GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn + 2).Color == EPiece.Empty)
+                        {
+                            GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn + 2).Color = EPiece.IsHighlighted;
+                        }
+                    }
+                }
+
+                if (GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color == EPiece.Black)
+                {
+                    if (sourcePieceRow + 2 < 8 && sourcePieceColumn - 2 >= 0)
+                    {
+                        if (GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn - 2).Color == EPiece.Empty)
+                        {
+                            GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn - 2).Color = EPiece.IsHighlighted;
+                        }
+                    }
+                }
             }
             else if (piece.Color == EPiece.Black)
             {
@@ -69,6 +95,28 @@
                         GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
                     }
                 }
+
+                if (GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.White)
+                {
+                    if (sourcePieceRow - 2 >= 0 && sourcePieceColumn + 2 < 8)
+                    {
+                        if (GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn + 2).Color == EPiece.Empty)
+                        {
+                            GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn + 2).Color = EPiece.IsHighlighted;
+                        }
+                    }
+                }
+
+                if (GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color == EPiece.White)
+                {
+                    if (sourcePieceRow - 2 >= 0 && sourcePieceColumn - 2 >= 0)
+                    {
+                        if (GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color == EPiece.Empty)
+                        {
+                            GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color = EPiece.IsHighlighted;
+                        }
+                    }
+                }
             }
         }
 
@@ -82,9 +130,12 @@
                 return false;
             }
 
-            // Efectuează mutarea piesei în cadrul tablei de joc
-            //DE IMPLEMENTAT IN BOARD!!!!!!!!!
             GameBoard.MovePiece(sourcePieceRow, sourcePieceColumn, targetPieceRow, targetPieceColumn);
+            //daca piesa captureaza o piesa de culoarea opusa, ea dispare de pe Board
+            if (targetPieceRow == sourcePieceRow + 2 || targetPieceRow == sourcePieceRow - 2)
+            {
+                GameBoard.GetPiece((sourcePieceRow + targetPieceRow) / 2, (sourcePieceColumn + targetPieceColumn) / 2).Color = EPiece.Empty;
+            }
 
             // Actualizează starea jocului (ex: verifică capturi, schimbă jucătorul curent etc.)
 
@@ -103,8 +154,11 @@
             {
                 if (targetPiece.Color == EPiece.Empty)
                 {
-                    if (targetPieceRow == sourcePieceRow + 1 && (targetPieceColumn == sourcePieceColumn + 1 ||
-                                                                 targetPieceColumn == sourcePieceColumn - 1))
+                    if ((targetPieceRow == sourcePieceRow + 1 && (targetPieceColumn == sourcePieceColumn + 1 ||
+                                                                 targetPieceColumn == sourcePieceColumn - 1)) 
+                        || 
+                        (targetPieceRow == sourcePieceRow + 2 && (targetPieceColumn == sourcePieceColumn + 2 ||
+                                                                  targetPieceColumn == sourcePieceColumn -2)))
                     {
                         return true;
                     }
@@ -114,8 +168,11 @@
             {
                 if (targetPiece.Color == EPiece.Empty)
                 {
-                    if (targetPieceRow == sourcePieceRow - 1 && (targetPieceColumn == sourcePieceColumn + 1 ||
-                                                                 targetPieceColumn == sourcePieceColumn - 1))
+                    if ((targetPieceRow == sourcePieceRow - 1 && (targetPieceColumn == sourcePieceColumn + 1 ||
+                                                                 targetPieceColumn == sourcePieceColumn - 1)) 
+                        ||
+                        (targetPieceRow == sourcePieceRow - 2 && (targetPieceColumn == sourcePieceColumn + 2 ||
+                                                                  targetPieceColumn == sourcePieceColumn - 2)))
                     {
                         return true;
                     }

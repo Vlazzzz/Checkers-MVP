@@ -7,12 +7,13 @@
         xmlns:viewModels="clr-namespace:tema2_MVP_Dame.ViewModels"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="600">
+        Title="MainWindow" Height="723" Width="584"
+        WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewModels:MainViewModel/>
     </Window.DataContext>
 
-    <Grid x:Name="TableGrid" Margin="98,79,76,69">
+    <Grid x:Name="TableGrid" Margin="47,167,39,29">
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="466*"/>
@@ -21,7 +22,7 @@
             <ImageBrush ImageSource="\Resources\table3.jpg"/>
         </Grid.Background>
 
-        <ItemsControl ItemsSource="{Binding Cells}" Margin="0,1,0,0" Grid.RowSpan="2">
+        <ItemsControl ItemsSource="{Binding Cells}" Margin="0,2,0,-1" Grid.RowSpan="2">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Rows="8" Columns="8"/>
@@ -37,7 +38,7 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-
+        <Button x:Name="SwitchTurnBtn" Content="SwitchTurn" HorizontalAlignment="Left" Margin="404,-91,0,0" VerticalAlignment="Top" Height="38" Width="77" Command="{Binding SwitchTurnCommand}"/>
 
 
     </Grid>
