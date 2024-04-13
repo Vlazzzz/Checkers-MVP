@@ -33,12 +33,46 @@ namespace tema2_MVP_Dame.ViewModels
         }
 
         //imi iau 2 variabile pt click... cand prima e null, o modific si afisez pozitiile highlighted si dupa la al doilea click fac miscarea
+        bool firstClick = false, secondClick = false;
+        int firstRow, firstColumn, secondRow, secondColumn;
         private void CellClick(object parameter)
         {
             // Logic for handling click on the cell
             Cell clickedCell = (Cell)parameter;
-            // Perform actions with the clicked cell
-            game.MovePiece(2, 1, 3, 2);
+
+            if (!firstClick)
+            {
+                firstClick = true;
+                firstRow = clickedCell.Row;
+                firstColumn = clickedCell.Column;
+            }
+            else
+            {
+                secondClick = true;
+                secondRow = clickedCell.Row;
+                secondColumn = clickedCell.Column;
+            }
+
+            if (firstClick && !secondClick)
+            {
+                game.ShowPotentialMoves(firstRow, firstColumn);
+                UpdateCells();
+            }
+
+            if (firstClick && secondClick)
+            {
+                game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
+                UpdateCells();
+                firstClick = false;
+                secondClick = false;
+                firstRow = -1;
+                firstColumn = -1;
+                secondRow = -1;
+                secondColumn = -1;
+            }
+
+            //game.MovePiece(2, 1, 3, 2);
+
             UpdateCells();
         }
 
