@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("tema2_MVP_Dame")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+89f21f77f11cea8dfa91d1847ec2528e96813b42")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6dfb3df59b932038f5811a474935060eb1c83b35")]
 [assembly: System.Reflection.AssemblyProductAttribute("tema2_MVP_Dame")]
 [assembly: System.Reflection.AssemblyTitleAttribute("tema2_MVP_Dame")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

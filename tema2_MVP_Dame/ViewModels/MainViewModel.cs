@@ -33,14 +33,24 @@ namespace tema2_MVP_Dame.ViewModels
             //game.ShowPotentialMoves(2, 3);
             UpdateCells();
         }
-        private void SwitchTurn(object parameter)
-        {
-            game.SwitchTurn();
-        }
 
         //imi iau 2 variabile pt click... cand prima e null, o modific si afisez pozitiile highlighted si dupa la al doilea click fac miscarea
         bool firstClick = false, secondClick = false;
-        int firstRow, firstColumn, secondRow, secondColumn;
+        int firstRow, firstColumn, secondRow, secondColumn; 
+        
+
+        private void SwitchTurn(object parameter)
+        {
+            game.SwitchTurn();
+            firstClick = false;
+            secondClick = false;
+            firstRow = -1;
+            firstColumn = -1;
+            secondRow = -1;
+            secondColumn = -1;
+        }
+
+        private bool okMoved = false;
         private void CellClick(object parameter)
         {
             // Logic for handling click on the cell
@@ -87,6 +97,7 @@ namespace tema2_MVP_Dame.ViewModels
                 if (game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.Black)
                 {
                     game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
+                    okMoved = true;
                     firstClick = false;
                     secondClick = false;
                     firstRow = -1;
@@ -98,15 +109,20 @@ namespace tema2_MVP_Dame.ViewModels
                 if (!game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White)
                 {
                     game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
+                    okMoved = true;
                     firstClick = false;
                     secondClick = false;
                     firstRow = -1;
                     firstColumn = -1;
                     secondRow = -1;
-
                 }
             }
 
+            if (okMoved)
+            {
+                game.SwitchTurn();
+                okMoved = false;
+            }
             UpdateCells();
         }
 
