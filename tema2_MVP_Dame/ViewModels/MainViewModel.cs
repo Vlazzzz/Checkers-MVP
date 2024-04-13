@@ -164,7 +164,7 @@ namespace tema2_MVP_Dame.ViewModels
                     }
                     else if (piece.Color == EPiece.IsHighlighted)
                     {
-                        Cells.Add(new Cell(i, j, "/Resources/x_shape.png"));
+                        Cells.Add(new Cell(i, j, "/Resources/highlight_2.jpg"));
                     }
                 }
             }

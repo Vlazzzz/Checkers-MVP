@@ -9,25 +9,44 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\black_king.png" />
     <None Remove="Resources\black_piece.png" />
     <None Remove="Resources\Board2.png" />
     <None Remove="Resources\depositphotos_375552506-stock-photo-modern-chess-board-background-design.webp" />
     <None Remove="Resources\empty.png" />
+    <None Remove="Resources\highlight.jpg" />
+    <None Remove="Resources\highlight3.png" />
+    <None Remove="Resources\highlight_2.jpg" />
     <None Remove="Resources\table.png" />
     <None Remove="Resources\table2.jpg" />
     <None Remove="Resources\table3.jpg" />
+    <None Remove="Resources\table4.jpg" />
+    <None Remove="Resources\table5.jpg" />
+    <None Remove="Resources\table6.jpg" />
+    <None Remove="Resources\white_king.png" />
     <None Remove="Resources\white_piece.png" />
+    <None Remove="Resources\white_piece2.png" />
     <None Remove="Resources\x_shape.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\black_king.png" />
     <Resource Include="Resources\black_piece.png" />
     <Resource Include="Resources\Board2.png" />
     <Resource Include="Resources\depositphotos_375552506-stock-photo-modern-chess-board-background-design.webp" />
     <Resource Include="Resources\empty.png" />
+    <Resource Include="Resources\highlight.jpg" />
+    <Resource Include="Resources\highlight3.png" />
+    <Resource Include="Resources\highlight_2.jpg">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\table.png" />
     <Resource Include="Resources\table2.jpg" />
     <Resource Include="Resources\table3.jpg" />
+    <Resource Include="Resources\table4.jpg" />
+    <Resource Include="Resources\table5.jpg" />
+    <Resource Include="Resources\table6.jpg" />
+    <Resource Include="Resources\white_king.png" />
     <Resource Include="Resources\white_piece.png" />
     <Resource Include="Resources\x_shape.png" />
   </ItemGroup>
