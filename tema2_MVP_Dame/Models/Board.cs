@@ -69,5 +69,10 @@ namespace tema2_MVP_Dame.Models
         {
             return squares[row, column];
         }
+
+        internal void RemovePiece(int capturedPieceRow, int capturedPieceColumn)
+        {
+            GetPiece(capturedPieceRow, capturedPieceColumn).Color = EPiece.Empty;
+        }
     }
 }

@@ -52,28 +52,28 @@ namespace tema2_MVP_Dame.ViewModels
                 firstRow = clickedCell.Row;
                 firstColumn = clickedCell.Column;
             }
-            else
+            else if(firstClick && !secondClick)
             {
                 secondClick = true;
                 secondRow = clickedCell.Row;
                 secondColumn = clickedCell.Column;
             }
 
-           // if (firstClick == secondClick)
-            //{
-                //daca e acelasi click jocul considera ca mutarea a fost facuta si tura se schimba,
-                //doar ca in mod normal nu ar trebui sa se schimbe tura si ar trebui sa mai pot apasa o data pe alta pozitie highlighteata
-                //deci, trebuie sa fac o verificare inainte sa schimb tura
+            //if(firstClick && !secondClick)
+            //{ if(game.getPiece(firstRow, firstColumn).Color == EPiece.empty)
+            //  { firstClick = false; secondClick = false; firstRow=-1, firstColumn=-1, secondRow=-1, secondColumn=-1 return; }
 
-           // }
+
+            //daca primul click e null modific primele coordonate, altfel, daca al doilea click e null, modific al doilea click si afisez mutarile posibile
+
 
             if (firstClick && !secondClick)
             {
-                if (game.isBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.Black)
+                if (game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.Black)
                 {
                     game.ShowPotentialMoves(firstRow, firstColumn);
                 }
-                else if (!game.isBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White)
+                else if (!game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White)
                 {
                     game.ShowPotentialMoves(firstRow, firstColumn);
                 }
@@ -81,13 +81,14 @@ namespace tema2_MVP_Dame.ViewModels
                 {
                     firstClick = false;
                     secondClick = false;
+                    return;
                 }
                 UpdateCells();
             }
 
             if (firstClick && secondClick)
             {
-                if (game.isBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.Black)
+                if (game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.Black)
                 {
                     game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
                     UpdateCells();
@@ -99,9 +100,9 @@ namespace tema2_MVP_Dame.ViewModels
                     secondColumn = -1;
                     //verificare pentru mutare multipla
                     //if(firstClick != secondClick)
-                        //SwitchTurn(null);
+                    //SwitchTurn(null);
                 }
-                else if (!game.isBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White)
+                else if (!game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White)
                 {
                     game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
                     UpdateCells();
@@ -113,7 +114,7 @@ namespace tema2_MVP_Dame.ViewModels
                     secondColumn = -1;
                     //verificare pentru mutare multipla
                     //if(firstClick != secondClick)
-                        //SwitchTurn(null);
+                    //SwitchTurn(null);
                 }
             }
             UpdateCells();

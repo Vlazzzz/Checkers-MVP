@@ -5,18 +5,17 @@
         public Board GameBoard { get; set; }
         public Player Player1 { get; set; }
         public Player Player2 { get; set; }
-
-        public bool isBlackTurn { get; set; }
+        public bool IsBlackTurn { get; internal set; }
 
         public Game()
         {
             // Inițializează tabla de joc
             GameBoard = new Board();
-            isBlackTurn = true; //black always starts
+            IsBlackTurn = true; //black always starts
         }
         public void SwitchTurn()
         {
-            isBlackTurn = !isBlackTurn;
+            IsBlackTurn = !IsBlackTurn;
         }
 
         private void ResetHighlightedCells()
@@ -39,19 +38,36 @@
 
             if (piece.Color == EPiece.White)
             {
-                if (sourcePieceRow + 1 < 8 && sourcePieceColumn + 1 < 8)
+                if (sourcePieceColumn == 0)
                 {
                     if (GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.Empty)
                     {
                         GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color = EPiece.IsHighlighted;
                     }
                 }
-
-                if (sourcePieceRow + 1 < 8 && sourcePieceColumn - 1 >= 0)
+                else if (sourcePieceColumn == 7)
                 {
                     if (GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color == EPiece.Empty)
                     {
                         GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
+                    }
+                }
+                else
+                {
+                    if (sourcePieceRow + 1 < 8 && sourcePieceColumn + 1 < 8)
+                    {
+                        if (GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.Empty)
+                        {
+                            GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color = EPiece.IsHighlighted;
+                        }
+                    }
+
+                    if (sourcePieceRow + 1 < 8 && sourcePieceColumn - 1 >= 0)
+                    {
+                        if (GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color == EPiece.Empty)
+                        {
+                            GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
+                        }
                     }
                 }
 
@@ -80,6 +96,24 @@
             }
             else if (piece.Color == EPiece.Black)
             {
+                if (sourcePieceColumn == 0)
+                {
+                    if (GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color = EPiece.IsHighlighted;
+                        return;
+                    }
+                }
+
+                if (sourcePieceColumn == 7)
+                {
+                    if (GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
+                        return;
+                    }
+                }
+
                 if (sourcePieceRow - 1 >= 0 && sourcePieceColumn + 1 < 8)
                 {
                     if (GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.Empty)
