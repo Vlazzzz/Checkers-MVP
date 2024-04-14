@@ -178,6 +178,7 @@ namespace tema2_MVP_Dame.ViewModels
                             }
                             else
                             {
+                                okMoved = true;
                                 ResetClicks();
                             }
                         }
@@ -208,6 +209,7 @@ namespace tema2_MVP_Dame.ViewModels
                             }
                             else
                             {
+                                okMoved = true;
                                 ResetClicks();
                             }
                         }
@@ -254,11 +256,11 @@ namespace tema2_MVP_Dame.ViewModels
                     }
                     else if (piece.Color == EPiece.White)
                     {
-                        Cells.Add(new Cell(i, j, "/Resources/white_piece.png"));
+                        Cells.Add(new Cell(i, j, "/Resources/wp6.png"));
                     }
                     else if (piece.Color == EPiece.Black)
                     {
-                        Cells.Add(new Cell(i, j, "/Resources/black_piece.png"));
+                        Cells.Add(new Cell(i, j, "/Resources/wp7.png"));
                     }
                     else if (piece.Color == EPiece.IsHighlighted)
                     {
@@ -266,11 +268,11 @@ namespace tema2_MVP_Dame.ViewModels
                     }
                     else if (piece.Color == EPiece.WhiteKing)
                     {
-                        Cells.Add(new Cell(i, j, "/Resources/white_king.png"));
+                        Cells.Add(new Cell(i, j, "/Resources/wk3.png"));
                     }
                     else if (piece.Color == EPiece.BlackKing)
                     {
-                        Cells.Add(new Cell(i, j, "/Resources/black_king.png"));
+                        Cells.Add(new Cell(i, j, "/Resources/bk3.png"));
                     }
                 }
             }
