@@ -73,13 +73,19 @@ namespace tema2_MVP_Dame.ViewModels
             {
                 firstClick = false;
                 secondClick = false;
+                firstRow = -1;
+                firstColumn = -1;
+                secondRow = -1;
+                secondColumn = -1;
+                UpdateCells();
+                game.ResetHighlightedCells();
             }
 
             if (firstClick && !secondClick)
             {
-                if (game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.Black)
+                if (game.IsBlackTurn && (game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.Black || game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.BlackKing))
                     game.ShowPotentialMoves(firstRow, firstColumn);
-                else if (!game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White)
+                else if (!game.IsBlackTurn && (game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White || game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.WhiteKing))
                     game.ShowPotentialMoves(firstRow, firstColumn);
                 else
                 {
@@ -96,9 +102,13 @@ namespace tema2_MVP_Dame.ViewModels
             {
                 if (game.GameBoard.GetPiece(secondRow, secondColumn).Color != EPiece.IsHighlighted)
                 {
+                    firstClick = false;
                     secondClick = false;
+                    firstRow = -1;
+                    firstColumn = -1;
                     secondRow = -1;
-                    secondColumn = -1;
+                    secondColumn = -1; 
+                    game.ResetHighlightedCells();
                 }
             }
 
@@ -108,7 +118,7 @@ namespace tema2_MVP_Dame.ViewModels
             {
                 if(game.GameBoard.GetPiece(secondRow, secondColumn).Color == EPiece.IsHighlighted)
                 {
-                    if (game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.Black)
+                    if (game.IsBlackTurn && (game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.Black || game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.BlackKing))
                     {
                         game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
                         okMoved = true;
@@ -120,7 +130,7 @@ namespace tema2_MVP_Dame.ViewModels
                         secondColumn = -1;
                     }
 
-                    if (!game.IsBlackTurn && game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White)
+                    if (!game.IsBlackTurn && (game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White || game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.WhiteKing))
                     {
                         game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
                         okMoved = true;
@@ -165,6 +175,14 @@ namespace tema2_MVP_Dame.ViewModels
                     else if (piece.Color == EPiece.IsHighlighted)
                     {
                         Cells.Add(new Cell(i, j, "/Resources/highlight_2.jpg"));
+                    }
+                    else if (piece.Color == EPiece.WhiteKing)
+                    {
+                        Cells.Add(new Cell(i, j, "/Resources/white_king.png"));
+                    }
+                    else if (piece.Color == EPiece.BlackKing)
+                    {
+                        Cells.Add(new Cell(i, j, "/Resources/black_king.png"));
                     }
                 }
             }

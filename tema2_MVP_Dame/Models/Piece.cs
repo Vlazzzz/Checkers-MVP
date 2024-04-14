@@ -2,7 +2,7 @@
 {
     public class Piece
     {
-        public EPiece Color { get; set; } // Culoarea piesei (alb sau roșu)
+        public EPiece Color { get; set; }
 
         public Piece(EPiece color)
         {

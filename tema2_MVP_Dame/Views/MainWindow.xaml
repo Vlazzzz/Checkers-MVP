@@ -8,7 +8,8 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="674" Width="546"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Background="#bcdafe">
     <Window.DataContext>
         <viewModels:MainViewModel/>
     </Window.DataContext>

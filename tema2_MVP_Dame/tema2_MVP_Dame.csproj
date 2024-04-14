@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\background.png" />
     <None Remove="Resources\black_king.png" />
     <None Remove="Resources\black_piece.png" />
     <None Remove="Resources\Board2.png" />
@@ -23,6 +24,7 @@
     <None Remove="Resources\table4.jpg" />
     <None Remove="Resources\table5.jpg" />
     <None Remove="Resources\table6.jpg" />
+    <None Remove="Resources\table7.jpg" />
     <None Remove="Resources\white_king.png" />
     <None Remove="Resources\white_piece.png" />
     <None Remove="Resources\white_piece2.png" />
@@ -30,6 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\background.png" />
     <Resource Include="Resources\black_king.png" />
     <Resource Include="Resources\black_piece.png" />
     <Resource Include="Resources\Board2.png" />
@@ -48,7 +51,6 @@
     <Resource Include="Resources\table6.jpg" />
     <Resource Include="Resources\white_king.png" />
     <Resource Include="Resources\white_piece.png" />
-    <Resource Include="Resources\x_shape.png" />
   </ItemGroup>
 
 </Project>

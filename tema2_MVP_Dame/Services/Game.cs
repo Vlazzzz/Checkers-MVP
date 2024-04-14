@@ -1,4 +1,5 @@
-﻿namespace tema2_MVP_Dame.Models
+﻿
+namespace tema2_MVP_Dame.Models
 {
     public class Game
     {
@@ -18,7 +19,7 @@
             IsBlackTurn = !IsBlackTurn;
         }
 
-        private void ResetHighlightedCells()
+        public void ResetHighlightedCells()
         {
             // Reset previously highlighted cells back to their original color
             foreach (var piece in GameBoard)
@@ -30,12 +31,221 @@
             }
         }
 
-        public void ShowPotentialMoves(int sourcePieceRow, int sourcePieceColumn)
+        private void ShowKingPotentialMoves(int sourcePieceRow, int sourcePieceColumn)
         {
             var piece = GameBoard.GetPiece(sourcePieceRow, sourcePieceColumn);
 
             ResetHighlightedCells();
 
+            // Check if the source piece is on the left edge of the board
+            if (sourcePieceColumn == 0)
+            {
+                if (sourcePieceRow + 1 < 8 && GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.Empty)
+                {
+                    GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color = EPiece.IsHighlighted;
+                }
+            }
+            // Check if the source piece is on the right edge of the board
+            else if (sourcePieceColumn == 7)
+            {
+                if (sourcePieceRow + 1 < 8 && GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color == EPiece.Empty)
+                {
+                    GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
+                }
+            }
+            // Otherwise, check both directions
+            else
+            {
+                if (sourcePieceRow + 1 < 8 && sourcePieceColumn + 1 < 8 && GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.Empty)
+                {
+                    GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color = EPiece.IsHighlighted;
+                }
+
+                if (sourcePieceRow + 1 < 8 && sourcePieceColumn - 1 >= 0 && GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color == EPiece.Empty)
+                {
+                    GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
+                }
+            }
+            //FUNCTIE SEPARATA DE VERIFICARE A CAPTURILOR
+
+            // Check if the source piece is on the left edge of the board
+            if (sourcePieceColumn == 0)
+            {
+                if (sourcePieceRow - 1 >= 0 && GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.Empty)
+                {
+                    GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color = EPiece.IsHighlighted;
+                    return;
+                }
+            }
+
+            // Check if the source piece is on the right edge of the board
+            if (sourcePieceColumn == 7)
+            {
+                if (sourcePieceRow - 1 >= 0 && GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color == EPiece.Empty)
+                {
+                    GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
+                    return;
+                }
+            }
+
+            // Otherwise, check both directions
+            if (sourcePieceRow - 1 >= 0 && sourcePieceColumn + 1 < 8 && GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.Empty)
+            {
+                GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color = EPiece.IsHighlighted;
+            }
+
+            if (sourcePieceRow - 1 >= 0 && sourcePieceColumn - 1 >= 0 && GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color == EPiece.Empty)
+            {
+                GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
+            }
+
+            CapturePieceCheck(sourcePieceRow, sourcePieceColumn);
+        }
+
+        private void CapturePieceCheck(int sourcePieceRow, int sourcePieceColumn)
+        {
+            // Check for capturing opponent's pieces
+            if (GameBoard.GetPiece(sourcePieceRow, sourcePieceColumn).Color == EPiece.WhiteKing)
+            {
+                if (sourcePieceRow + 1 < 8 && sourcePieceColumn + 1 < 8 &&
+                    (GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.Black ||
+                     GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.BlackKing))
+                {
+                    if (sourcePieceRow + 2 < 8 && sourcePieceColumn + 2 < 8 &&
+                        GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn + 2).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn + 2).Color = EPiece.IsHighlighted;
+                    }
+                }
+
+                if (sourcePieceRow + 1 < 8 && sourcePieceColumn - 1 >= 0 &&
+                    (GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color == EPiece.Black ||
+                     GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color == EPiece.BlackKing))
+                {
+                    if (sourcePieceRow + 2 < 8 && sourcePieceColumn - 2 >= 0 &&
+                        GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn - 2).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn - 2).Color = EPiece.IsHighlighted;
+                    }
+                }
+
+                if (sourcePieceRow - 1 >= 0 && sourcePieceColumn + 1 < 8 &&
+                    (GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.Black ||
+                     GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.BlackKing))
+                {
+                    if (sourcePieceRow - 2 >= 0 && sourcePieceColumn + 2 < 8 &&
+                        GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn + 2).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn + 2).Color = EPiece.IsHighlighted;
+                    }
+                }
+
+                if (sourcePieceRow - 1 >= 0 && sourcePieceColumn - 1 >= 0 &&
+                    (GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color == EPiece.Black ||
+                     GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.BlackKing))
+                {
+                    if (sourcePieceRow - 2 >= 0 && sourcePieceColumn - 2 >= 0 &&
+                        GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color = EPiece.IsHighlighted;
+                    }
+                }
+            }
+            else if (GameBoard.GetPiece(sourcePieceRow, sourcePieceColumn).Color == EPiece.BlackKing)
+            {
+                if (sourcePieceRow + 1 < 8 && sourcePieceColumn + 1 < 8 &&
+                    (GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.White ||
+                     GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.WhiteKing))
+                {
+                    if (sourcePieceRow + 2 < 8 && sourcePieceColumn + 2 < 8 &&
+                        GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn + 2).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn + 2).Color = EPiece.IsHighlighted;
+                    }
+                }
+
+                if (sourcePieceRow + 1 < 8 && sourcePieceColumn - 1 >= 0 &&
+                    (GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color == EPiece.White ||
+                     GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color == EPiece.WhiteKing))
+                {
+                    if (sourcePieceRow + 2 < 8 && sourcePieceColumn - 2 >= 0 &&
+                        GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn - 2).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn - 2).Color = EPiece.IsHighlighted;
+                    }
+                }
+
+                if (sourcePieceRow - 1 >= 0 && sourcePieceColumn + 1 < 8 &&
+                    (GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.White ||
+                    GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.WhiteKing))
+                {
+                    if (sourcePieceRow - 2 >= 0 && sourcePieceColumn + 2 < 8 &&
+                        GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn + 2).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn + 2).Color = EPiece.IsHighlighted;
+                    }
+                }
+
+                if (sourcePieceRow - 1 >= 0 && sourcePieceColumn - 1 >= 0 &&
+                    (GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color == EPiece.White ||
+                     GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.WhiteKing))
+                {
+                    if (sourcePieceRow - 2 >= 0 && sourcePieceColumn - 2 >= 0 &&
+                        GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color = EPiece.IsHighlighted;
+                    }
+                }
+            }
+            else if(GameBoard.GetPiece(sourcePieceRow, sourcePieceColumn).Color == EPiece.White)
+            {
+                if (sourcePieceRow + 1 < 8 && sourcePieceColumn + 1 < 8 &&
+                   GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.Black)
+                {
+                    if (sourcePieceRow + 2 < 8 && sourcePieceColumn + 2 < 8 &&
+                     GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn + 2).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn + 2).Color = EPiece.IsHighlighted;
+                    }
+                }
+
+                if (sourcePieceRow + 1 < 8 && sourcePieceColumn - 1 >= 0 &&
+                    GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color == EPiece.Black)
+                {
+                    if (sourcePieceRow + 2 < 8 && sourcePieceColumn - 2 >= 0 &&
+                        GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn - 2).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn - 2).Color = EPiece.IsHighlighted;
+                    }
+                }
+            }
+            else if (GameBoard.GetPiece(sourcePieceRow, sourcePieceColumn).Color == EPiece.Black)
+            {
+                if (sourcePieceRow - 1 >= 0 && sourcePieceColumn + 1 < 8 &&
+                    GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.White)
+                {
+                    if (sourcePieceRow - 2 >= 0 && sourcePieceColumn + 2 < 8 &&
+                        GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn + 2).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn + 2).Color = EPiece.IsHighlighted;
+                    }
+                }
+
+                if (sourcePieceRow - 1 >= 0 && sourcePieceColumn - 1 >= 0 &&
+                    GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color == EPiece.White)
+                {
+                    if (sourcePieceRow - 2 >= 0 && sourcePieceColumn - 2 >= 0 &&
+                        GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color = EPiece.IsHighlighted;
+                    }
+                }
+            }
+        }
+
+        void ShowNormalPiecePotentialMoves(int sourcePieceRow, int sourcePieceColumn)
+        {
+            Piece piece = GameBoard.GetPiece(sourcePieceRow, sourcePieceColumn);
             if (piece.Color == EPiece.White)
             {
                 // Check if the source piece is on the left edge of the board
@@ -65,23 +275,6 @@
                     if (sourcePieceRow + 1 < 8 && sourcePieceColumn - 1 >= 0 && GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color == EPiece.Empty)
                     {
                         GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
-                    }
-                }
-
-                // Check for capturing opponent's pieces
-                if (sourcePieceRow + 1 < 8 && sourcePieceColumn + 1 < 8 && GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.Black)
-                {
-                    if (sourcePieceRow + 2 < 8 && sourcePieceColumn + 2 < 8 && GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn + 2).Color == EPiece.Empty)
-                    {
-                        GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn + 2).Color = EPiece.IsHighlighted;
-                    }
-                }
-
-                if (sourcePieceRow + 1 < 8 && sourcePieceColumn - 1 >= 0 && GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color == EPiece.Black)
-                {
-                    if (sourcePieceRow + 2 < 8 && sourcePieceColumn - 2 >= 0 && GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn - 2).Color == EPiece.Empty)
-                    {
-                        GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn - 2).Color = EPiece.IsHighlighted;
                     }
                 }
             }
@@ -117,44 +310,47 @@
                 {
                     GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
                 }
-
-                if (sourcePieceRow - 1 >= 0 && sourcePieceColumn + 1 < 8 && GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.White)
-                {
-                    if (sourcePieceRow - 2 >= 0 && sourcePieceColumn + 2 < 8 && GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn + 2).Color == EPiece.Empty)
-                    {
-                        GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn + 2).Color = EPiece.IsHighlighted;
-                    }
-                }
-
-                if (sourcePieceRow - 1 >= 0 && sourcePieceColumn - 1 >= 0 && GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color == EPiece.White)
-                {
-                    if (sourcePieceRow - 2 >= 0 && sourcePieceColumn - 2 >= 0 && GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color == EPiece.Empty)
-                    {
-                        GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color = EPiece.IsHighlighted;
-                    }
-                }
             }
         }
 
+        public void ShowPotentialMoves(int sourcePieceRow, int sourcePieceColumn)
+        {
+            var piece = GameBoard.GetPiece(sourcePieceRow, sourcePieceColumn);
 
+            ResetHighlightedCells();
+            if (piece.Color == EPiece.WhiteKing || piece.Color == EPiece.BlackKing)
+                ShowKingPotentialMoves(sourcePieceRow, sourcePieceColumn);
+            else if (piece.Color == EPiece.White || piece.Color == EPiece.Black)
+                ShowNormalPiecePotentialMoves(sourcePieceRow, sourcePieceColumn);
+
+            CapturePieceCheck(sourcePieceRow, sourcePieceColumn);
+        }
+
+        private void CheckIfKing()
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                if (GameBoard.GetPiece(0, i).Color == EPiece.Black)
+                    GameBoard.GetPiece(0, i).Color = EPiece.BlackKing;
+                if (GameBoard.GetPiece(7, i).Color == EPiece.White)
+                    GameBoard.GetPiece(7, i).Color = EPiece.WhiteKing;
+            }
+        }
         public bool MovePiece(int sourcePieceRow, int sourcePieceColumn, int targetPieceRow, int targetPieceColumn)
         {
             ResetHighlightedCells();
-            // Verifică dacă mutarea este validă
             if (!IsValidMove(sourcePieceRow, sourcePieceColumn, targetPieceRow, targetPieceColumn))
-            {
-                // Mutarea nu este validă, returnează false
                 return false;
-            }
 
             GameBoard.MovePiece(sourcePieceRow, sourcePieceColumn, targetPieceRow, targetPieceColumn);
+
             //daca piesa captureaza o piesa de culoarea opusa, ea dispare de pe Board
             if (targetPieceRow == sourcePieceRow + 2 || targetPieceRow == sourcePieceRow - 2)
             {
-                GameBoard.GetPiece((sourcePieceRow + targetPieceRow) / 2, (sourcePieceColumn + targetPieceColumn) / 2).Color = EPiece.Empty;
+                GameBoard.RemovePiece((sourcePieceRow + targetPieceRow) / 2, (sourcePieceColumn + targetPieceColumn) / 2);
             }
 
-            // Actualizează starea jocului (ex: verifică capturi, schimbă jucătorul curent etc.)
+            CheckIfKing();
 
             return true; // Mutarea a fost efectuată cu succes
         }
@@ -187,6 +383,29 @@
                 {
                     if ((targetPieceRow == sourcePieceRow - 1 && (targetPieceColumn == sourcePieceColumn + 1 ||
                                                                  targetPieceColumn == sourcePieceColumn - 1)) 
+                        ||
+                        (targetPieceRow == sourcePieceRow - 2 && (targetPieceColumn == sourcePieceColumn + 2 ||
+                                                                  targetPieceColumn == sourcePieceColumn - 2)))
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (sourcePiece.Color == EPiece.BlackKing || sourcePiece.Color == EPiece.WhiteKing)
+            {
+                if (targetPiece.Color == EPiece.Empty)
+                {
+                    if ((targetPieceRow == sourcePieceRow + 1 && (targetPieceColumn == sourcePieceColumn + 1 ||
+                                                                  targetPieceColumn == sourcePieceColumn - 1))
+                        ||
+                        (targetPieceRow == sourcePieceRow + 2 && (targetPieceColumn == sourcePieceColumn + 2 ||
+                                                                  targetPieceColumn == sourcePieceColumn - 2)))
+                    {
+                        return true;
+                    }
+
+                    if ((targetPieceRow == sourcePieceRow - 1 && (targetPieceColumn == sourcePieceColumn + 1 ||
+                                                                  targetPieceColumn == sourcePieceColumn - 1))
                         ||
                         (targetPieceRow == sourcePieceRow - 2 && (targetPieceColumn == sourcePieceColumn + 2 ||
                                                                   targetPieceColumn == sourcePieceColumn - 2)))
