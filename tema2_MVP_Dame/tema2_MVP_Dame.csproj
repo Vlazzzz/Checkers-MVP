@@ -18,6 +18,10 @@
     <None Remove="Resources\highlight.jpg" />
     <None Remove="Resources\highlight3.png" />
     <None Remove="Resources\highlight_2.jpg" />
+    <None Remove="Resources\load.png" />
+    <None Remove="Resources\reset.png" />
+    <None Remove="Resources\save.png" />
+    <None Remove="Resources\save_game.png" />
     <None Remove="Resources\table.png" />
     <None Remove="Resources\table2.jpg" />
     <None Remove="Resources\table3.jpg" />
@@ -32,6 +36,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\background.png" />
     <Resource Include="Resources\black_king.png" />
     <Resource Include="Resources\black_piece.png" />
@@ -43,6 +51,10 @@
     <Resource Include="Resources\highlight_2.jpg">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\load.png" />
+    <Resource Include="Resources\reset.png" />
+    <Resource Include="Resources\save.png" />
+    <Resource Include="Resources\save_game.png" />
     <Resource Include="Resources\table.png" />
     <Resource Include="Resources\table2.jpg" />
     <Resource Include="Resources\table3.jpg" />

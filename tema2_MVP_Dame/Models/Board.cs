@@ -70,9 +70,20 @@ namespace tema2_MVP_Dame.Models
             return squares[row, column];
         }
 
+        public void SetPiece(int row, int column, EPiece color)
+        {
+            squares[row, column].Color = color;
+        }
+
         internal void RemovePiece(int capturedPieceRow, int capturedPieceColumn)
         {
             GetPiece(capturedPieceRow, capturedPieceColumn).Color = EPiece.Empty;
+        }
+
+        public void ResetBoard()
+        {
+            //reset the board
+            InitializeBoard();
         }
     }
 }

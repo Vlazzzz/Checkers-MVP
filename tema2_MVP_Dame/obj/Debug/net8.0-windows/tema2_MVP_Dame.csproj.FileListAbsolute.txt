@@ -20,3 +20,6 @@ D:\facultate\II\SEM II\MVP\tema1_dictionar\Checkers-MVP\tema2_MVP_Dame\obj\Debug
 D:\facultate\II\SEM II\MVP\tema1_dictionar\Checkers-MVP\tema2_MVP_Dame\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\facultate\II\SEM II\MVP\tema1_dictionar\Checkers-MVP\tema2_MVP_Dame\obj\Debug\net8.0-windows\Views\MainWindow.g.cs
 D:\facultate\II\SEM II\MVP\tema1_dictionar\Checkers-MVP\tema2_MVP_Dame\obj\Debug\net8.0-windows\Views\MainWindow.baml
+D:\facultate\II\SEM II\MVP\tema1_dictionar\Checkers-MVP\tema2_MVP_Dame\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+D:\facultate\II\SEM II\MVP\tema1_dictionar\Checkers-MVP\tema2_MVP_Dame\obj\Debug\net8.0-windows\tema2_MVP_Dame.csproj.AssemblyReference.cache
+D:\facultate\II\SEM II\MVP\tema1_dictionar\Checkers-MVP\tema2_MVP_Dame\obj\Debug\net8.0-windows\tema2_MV.E2C39506.Up2Date

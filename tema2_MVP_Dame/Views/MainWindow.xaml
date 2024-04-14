@@ -7,14 +7,14 @@
         xmlns:viewModels="clr-namespace:tema2_MVP_Dame.ViewModels"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="674" Width="546"
+        Title="MainWindow" Height="771" Width="606"
         WindowStartupLocation="CenterScreen"
         Background="#bcdafe">
     <Window.DataContext>
         <viewModels:MainViewModel/>
     </Window.DataContext>
 
-    <Grid x:Name="TableGrid" Margin="47,167,39,29">
+    <Grid x:Name="TableGrid" Margin="54,134,54,133">
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="466*"/>
@@ -23,7 +23,7 @@
             <ImageBrush ImageSource="\Resources\table3.jpg"/>
         </Grid.Background>
 
-        <ItemsControl ItemsSource="{Binding Cells}" Grid.RowSpan="2">
+        <ItemsControl ItemsSource="{Binding Cells}" Margin="0,0,0,-1" Grid.RowSpan="2">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Rows="8" Columns="8"/>
@@ -39,7 +39,39 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <Button x:Name="SwitchTurnBtn" Content="SwitchTurn" HorizontalAlignment="Left" Margin="348,-99,0,0" VerticalAlignment="Top" Height="38" Width="77" Command="{Binding SwitchTurnCommand}"/>
+
+        <Button x:Name="SwitchTurnBtn" Content="SwitchTurn" HorizontalAlignment="Left" Margin="406,0,0,-91" VerticalAlignment="Bottom" Height="48" Width="73" Command="{Binding SwitchTurnCommand}" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,-108,0,0" TextWrapping="Wrap" Text="CHECKERS" VerticalAlignment="Top" Height="76" Width="298" TextAlignment="Center" FontSize="80" FontFamily="Bahnschrift SemiBold Condensed" FontWeight="Bold" RenderTransformOrigin="0.489,0.216"/>
+
+        <!-- Add the image buttons -->
+        <Button  Command="{Binding SaveGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="31,0,0,-97" VerticalAlignment="Bottom" Height="59" Width="57" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="Transparent" CornerRadius="10">
+                        <Image Source="/Resources/save.png" Stretch="UniformToFill"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button  Command="{Binding LoadGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="151,0,0,-97" VerticalAlignment="Bottom" Height="59" Width="57" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="Transparent" CornerRadius="10">
+                        <Image Source="/Resources/load.png" Stretch="UniformToFill"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button  Command="{Binding ResetGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="274,0,0,-97" VerticalAlignment="Bottom" Height="59" Width="57" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="Transparent" CornerRadius="10">
+                        <Image Source="/Resources/reset.png" Stretch="UniformToFill"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
 
     </Grid>
