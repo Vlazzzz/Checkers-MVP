@@ -613,6 +613,61 @@ namespace tema2_MVP_Dame.Models
             {
                 return EPiece.Black;
             }
+
+            //if there are still pieces on the table, we can check if any of the players has all of his pieces blocked by the other player so the game is over
+            int whiteHighlightedPiecesCounter = 0, blackHighlightedPiecesCounter = 0;
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (GameBoard.GetPiece(i, j).Color == EPiece.Black ||
+                        GameBoard.GetPiece(i, j).Color == EPiece.BlackKing)
+                    {
+                        ShowPotentialMoves(i, j);
+                        for (int k = 0; k < 8; k++)
+                        {
+                            for (int l = 0; l < 8; l++)
+                            {
+                                if (GameBoard.GetPiece(k, l).Color == EPiece.IsHighlighted)
+                                {
+                                    blackHighlightedPiecesCounter++;
+                                }
+                            }
+                        }
+                    }
+                    else if (GameBoard.GetPiece(i, j).Color == EPiece.White ||
+                             GameBoard.GetPiece(i, j).Color == EPiece.WhiteKing)
+                    {
+                        ShowPotentialMoves(i, j);
+                        for (int k = 0; k < 8; k++)
+                        {
+                            for (int l = 0; l < 8; l++)
+                            {
+                                if (GameBoard.GetPiece(k, l).Color == EPiece.IsHighlighted)
+                                {
+                                    whiteHighlightedPiecesCounter++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            //if the black player forced the white one the first to have all his pieces blocked, the black player wins
+            if(IsBlackTurn)
+            {
+                if (whiteHighlightedPiecesCounter == 0)
+                {
+                    return EPiece.Black;
+                }
+            }
+            else
+            {
+                if (blackHighlightedPiecesCounter == 0)
+                {
+                    return EPiece.White;
+                }
+            }
+            
             return EPiece.Empty;
         }
     }
