@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
+using System.Xml.Linq;
 using ICommandDemoAgain.Commands;
 using Microsoft.Win32;
 using Newtonsoft.Json;
@@ -24,6 +25,28 @@ namespace tema2_MVP_Dame.ViewModels
 
         public ObservableCollection<Cell> Cells { get; set; }
 
+        private string _winHistoryWhiteText;
+        private string _winHistoryBlackText;
+        public string WinHistoryBlackText
+        {
+            get { return _winHistoryBlackText; }
+            set
+            {
+                _winHistoryBlackText = value;
+                OnPropertyChanged(nameof(WinHistoryBlackText));
+            }
+        }
+        
+        public string WinHistoryWhiteText
+        {
+            get { return _winHistoryWhiteText; }
+            set
+            {
+                _winHistoryWhiteText = value;
+                OnPropertyChanged(nameof(WinHistoryWhiteText));
+            }
+        }
+
         //fac o functie updateCells care sa imi faca update la observable collection de fiecare data cand se schimba ceva in game
 
         public MainViewModel()
@@ -38,13 +61,29 @@ namespace tema2_MVP_Dame.ViewModels
             SaveGameCommand = new RelayCommand(SaveGame);
             LoadGameCommand = new RelayCommand(LoadGame);
             ResetGameCommand = new RelayCommand(ResetGame);
-            //game.MovePiece(2, 1, 3, 2);
-            //game.ShowPotentialMoves(2, 3);
+
+            LoadWinHistoryFromFile("D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Resources\\win_history.txt");
+
             UpdateCells();
         }
 
+        private void LoadWinHistoryFromFile(string filename)
+        {
+            // Read the win history from the file
+            string winHistoryTxt = File.ReadAllText(filename);
+
+            int numberOfWhiteWins, numberOfBlackWins;
+            //the first element from the file is the number of white wins, and the second one is the number of black wins
+            string[] winHistoryArray = winHistoryTxt.Split(' ');
+            numberOfWhiteWins = int.Parse(winHistoryArray[0]);
+            numberOfBlackWins = int.Parse(winHistoryArray[1]);
+
+            WinHistoryWhiteText = numberOfWhiteWins.ToString();
+            WinHistoryBlackText = numberOfBlackWins.ToString();
+        }
         private void ResetGame(object obj)
         {
+            LoadWinHistoryFromFile("D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Resources\\win_history.txt");
             game.ResetGame();
             UpdateCells();
         }
@@ -93,19 +132,25 @@ namespace tema2_MVP_Dame.ViewModels
         bool firstClick = false, secondClick = false;
         int firstRow, firstColumn, secondRow, secondColumn; 
         
-
+        //problema e ca daca mut o piesa si dau switch turn imi schimba tura inapoi in piesa de mai devreme
+        //dar daca nu mut nimic si dau switch turn, nu se schimba tura, deci asa e corect
         private void SwitchTurn(object parameter)
         {
-            game.SwitchTurn();
-            firstClick = false;
-            secondClick = false;
-            firstRow = -1;
-            firstColumn = -1;
-            secondRow = -1;
-            secondColumn = -1;
+            if(pieceCaptured == true)
+            {
+                game.SwitchTurn();
+                firstClick = false;
+                secondClick = false;
+                firstRow = -1;
+                firstColumn = -1;
+                secondRow = -1;
+                secondColumn = -1;
+                UpdateCells();
+            }
         }
 
-        private bool okMoved = false;
+        private bool canSwitchTurn = false;
+        private bool pieceCaptured = false;
         private void CellClick(object parameter)
         {
             // Logic for handling click on the cell
@@ -115,6 +160,7 @@ namespace tema2_MVP_Dame.ViewModels
                 firstRow = clickedCell.Row;
                 firstColumn = clickedCell.Column;
                 firstClick = true;
+                pieceCaptured = false;
             }
 
             else if (firstClick && !secondClick)
@@ -152,8 +198,6 @@ namespace tema2_MVP_Dame.ViewModels
                 }
             }
 
-            //daca e tura lui negru si apas pe negru si dupa pe alb, desi nu am mutat nimic, se schimba tura. cum rezolv problema asta?
-
             if (firstClick && secondClick)
             {
                 if(game.GameBoard.GetPiece(secondRow, secondColumn).Color == EPiece.IsHighlighted)
@@ -168,7 +212,8 @@ namespace tema2_MVP_Dame.ViewModels
                             //daca pot face capturari multiple, nu schimb tura si resetez al doilea click astfel incat sa pot continua capturarea
                             if (game.CapturePieceCheck(secondRow, secondColumn) != false)
                             {
-                                okMoved = false;
+                                pieceCaptured = true;
+                                canSwitchTurn = false;
                                 //firstClick = false;
                                 secondClick = false;
                                 firstRow = secondRow;
@@ -178,14 +223,14 @@ namespace tema2_MVP_Dame.ViewModels
                             }
                             else
                             {
-                                okMoved = true;
+                                canSwitchTurn = true;
                                 ResetClicks();
                             }
                         }
                         //daca nu pot face capturari multiple, schimb tura si resetez clickurile
                         else
                         {
-                            okMoved = true;
+                            canSwitchTurn = true;
                             ResetClicks();
                         }
                     }
@@ -199,7 +244,8 @@ namespace tema2_MVP_Dame.ViewModels
                             //daca pot face capturari multiple, nu schimb tura si resetez al doilea click astfel incat sa pot continua capturarea
                             if (game.CapturePieceCheck(secondRow, secondColumn) != false)
                             {
-                                okMoved = false;
+                                pieceCaptured = true;
+                                canSwitchTurn = false;
                                 //firstClick = false;
                                 secondClick = false;
                                 firstRow = secondRow;
@@ -209,25 +255,26 @@ namespace tema2_MVP_Dame.ViewModels
                             }
                             else
                             {
-                                okMoved = true;
+                                canSwitchTurn = true;
                                 ResetClicks();
                             }
                         }
                         //daca nu pot face capturari multiple, schimb tura si resetez clickurile
                         else
                         {
-                            okMoved = true;
+                            canSwitchTurn = true;
                             ResetClicks();
                         }
                     }
                 }
             }
 
-            if (okMoved)
+            if (canSwitchTurn)
             {
                 game.SwitchTurn();
-                okMoved = false;
+                canSwitchTurn = false;
             }
+
             UpdateCells();
         }
 
@@ -240,6 +287,7 @@ namespace tema2_MVP_Dame.ViewModels
             secondRow = -1;
             secondColumn = -1;
         }
+
 
         void UpdateCells()
         {

@@ -7,7 +7,7 @@
         xmlns:viewModels="clr-namespace:tema2_MVP_Dame.ViewModels"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="742" Width="606"
+        Title="MainWindow" Height="768" Width="619"
         WindowStartupLocation="CenterScreen"
         Background="#bcdafe">
     <Window.DataContext>
@@ -39,10 +39,10 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <TextBlock HorizontalAlignment="Center" Margin="0,-120,0,0" TextWrapping="Wrap" Text="CHECKERS" VerticalAlignment="Top" Height="91" Width="298" TextAlignment="Center" FontSize="90" FontFamily="Bahnschrift SemiBold Condensed" FontWeight="Bold" RenderTransformOrigin="0.489,0.216"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,-121,0,0" TextWrapping="Wrap" Text="CHECKERS" VerticalAlignment="Top" Height="91" Width="298" TextAlignment="Center" FontSize="90" FontFamily="Bahnschrift SemiBold Condensed" FontWeight="Bold" RenderTransformOrigin="0.489,0.216"/>
 
         <!-- Add the image buttons -->
-        <Button  Command="{Binding SaveGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="21,0,0,-89" VerticalAlignment="Bottom" Height="78" Width="75" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
+        <Button  Command="{Binding SaveGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="178,0,0,-77" VerticalAlignment="Bottom" Height="61" Width="59" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="Transparent" CornerRadius="10">
@@ -52,7 +52,7 @@
             </Button.Template>
         </Button>
 
-        <Button  Command="{Binding LoadGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="119,0,0,-89" VerticalAlignment="Bottom" Height="77" Width="75" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
+        <Button  Command="{Binding LoadGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="261,0,0,-77" VerticalAlignment="Bottom" Height="59" Width="58" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="Transparent" CornerRadius="10">
@@ -61,33 +61,48 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button  Command="{Binding ResetGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="299,0,0,-94" VerticalAlignment="Bottom" Height="94" Width="122" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
+
+        <Button  Command="{Binding ResetGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="324,0,0,-90" VerticalAlignment="Bottom" Height="94" Width="198" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Background="Transparent" CornerRadius="10">
-                        <Grid Margin="-46,10,0,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0*"/>
-                                <ColumnDefinition Width="0*"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="RESTART"  TextAlignment="Center" FontSize="60" FontFamily="Bahnschrift SemiBold Condensed" FontWeight="Bold" Margin="0,5,-10,20" Grid.ColumnSpan="3">
-                            </TextBlock>
-                        </Grid>
+                    <Border Background="Black" CornerRadius="10" Margin="19,24,32,12">
+                        <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" FontFamily="Bahnschrift SemiBold Condensed" FontSize="40" Text="RESTART" Margin="0,0,3,0" Height="39"/>
                     </Border>
                 </ControlTemplate>
             </Button.Template>
         </Button>
 
-        <Button  Command="{Binding SaveGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="21,0,0,-89" VerticalAlignment="Bottom" Height="78" Width="75" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
+        <Button Content="Button" Command="{Binding SwitchTurnCommand}" HorizontalAlignment="Left" Margin="437,-41,0,0" VerticalAlignment="Top" Width="60" Height="34">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Background="Transparent" CornerRadius="10">
-                        <Image Source="/Resources/info.png" Stretch="UniformToFill" Margin="431,17,-404,13"/>
+                    <Border Background="Black" CornerRadius="10" Margin="0,11,0,0">
+                        <TextBlock Text="End Turn" Foreground="White" TextAlignment="Center" VerticalAlignment="Center" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Height="16"/>
                     </Border>
                 </ControlTemplate>
             </Button.Template>
         </Button>
+        <TextBlock x:Name="WinHistoryBlack" Foreground="Black" FontFamily="Bahnschrift SemiBold Condensed" FontSize="30" Text="{Binding WinHistoryBlackText}" HorizontalAlignment="Left" Margin="21,0,0,-86" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="17" Grid.Row="1"/>
+        <TextBlock x:Name="WinHistoryWhite" Foreground="White" FontFamily="Bahnschrift SemiBold Condensed" FontSize="30" Text="{Binding WinHistoryWhiteText}" HorizontalAlignment="Left" Margin="85,0,0,-86" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="14" Grid.Row="1"/>
+        <TextBlock Foreground="Black" FontFamily="Bahnschrift SemiBold Condensed" FontSize="30" Text="Win History" HorizontalAlignment="Left" Margin="7,0,0,-53" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="115" Grid.Row="1"/>
+        <Image Source="../Resources/info.png" HorizontalAlignment="Left" Height="36" Margin="0,-112,0,0" VerticalAlignment="Top" Width="38">
+            <Image.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <TextBlock Text="Checkers Game" FontWeight="Bold" />
+                        <TextBlock Text="This is a Checkers game project created by Mandoiu Vlad Stefan." />
+                        <TextBlock Text="Author's Email: vlad.mandoiu@student.unitbv.ro" />
+                        <TextBlock Text="Faculty Group: 10LF322" />
+                        <TextBlock Text="Rules of the Game:" FontWeight="Bold" Margin="0,5,0,0" />
+                        <TextBlock Text="1. Checkers is played on an 8x8 board with alternating dark and light squares." TextWrapping="Wrap" Margin="0,5,0,0" />
+                        <TextBlock Text="2. Each player starts with 12 pieces placed on the dark squares of the three rows closest to them." TextWrapping="Wrap" Margin="0,5,0,0" />
+                        <TextBlock Text="3. Players move their pieces diagonally forward, capturing opponent pieces by jumping over them." TextWrapping="Wrap" Margin="0,5,0,0" />
+                        <TextBlock Text="4. If a player's piece reaches the opponent's back row, it becomes a king and gains the ability to move diagonally backward." TextWrapping="Wrap" Margin="0,5,0,0" />
+                        <TextBlock Text="5. The game is won by capturing all of the opponent's pieces or by forcing them into a position where they cannot move." TextWrapping="Wrap" Margin="0,5,0,0" />
+                    </StackPanel>
+                </ToolTip>
+            </Image.ToolTip>
+        </Image>
+
 
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Windows;
 using System.Xml;
 using Microsoft.Win32;
 using Newtonsoft.Json;
@@ -24,6 +25,7 @@ namespace tema2_MVP_Dame.Models
         public void SwitchTurn()
         {
             IsBlackTurn = !IsBlackTurn;
+            ResetHighlightedCells();
         }
 
         public void ResetHighlightedCells()
@@ -394,6 +396,21 @@ namespace tema2_MVP_Dame.Models
 
             CheckIfKing();
 
+            if (IsGameOver() == EPiece.Black)
+            {
+                MessageBox.Show("Black wins", "Game Over", MessageBoxButton.OK, MessageBoxImage.Information);
+                UpdateWinHistoryInFile("D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Resources\\win_history.txt");
+                //GameBoard.ResetBoard();
+                //IsBlackTurn = true;
+            }
+            else if (IsGameOver() == EPiece.White)
+            {
+                MessageBox.Show("White wins", "Game Over", MessageBoxButton.OK, MessageBoxImage.Information);
+                UpdateWinHistoryInFile("D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Resources\\win_history.txt");
+                //GameBoard.ResetBoard();
+                //IsBlackTurn = true;
+            }
+
             return true; // Mutarea a fost efectuată cu succes
         }
 
@@ -478,6 +495,29 @@ namespace tema2_MVP_Dame.Models
             IsBlackTurn = true;
         }
 
+        public void UpdateWinHistoryInFile(string filename)
+        {
+            // Read the win history from the file
+            string winHistoryTxt = File.ReadAllText(filename);
+
+            int numberOfWhiteWins, numberOfBlackWins;
+            //the first element from the file is the number of white wins, and the second one is the number of black wins
+            string[] winHistoryArray = winHistoryTxt.Split(' ');
+            numberOfWhiteWins = int.Parse(winHistoryArray[0]);
+            numberOfBlackWins = int.Parse(winHistoryArray[1]);
+
+            // Call IsGameOver to determine the winning player
+            EPiece winningPlayer = IsGameOver();
+
+            if (winningPlayer == EPiece.Black)
+                numberOfBlackWins++;
+            else if (winningPlayer == EPiece.White)
+                numberOfWhiteWins++;
+
+            // Write the updated win history back to the file, which are the two int values, one for white wins, one for black wins
+            string updatedWinHistory = numberOfWhiteWins + " " + numberOfBlackWins;
+            File.WriteAllText(filename, updatedWinHistory);
+        }
         public void SaveGame(string filePath)
         {
             // Create a new instance of Game to store the game information
@@ -542,10 +582,38 @@ namespace tema2_MVP_Dame.Models
             }
         }
 
-        public bool IsGameOver()
+        public EPiece IsGameOver()
         {
-            //
-            return true;
+            //implement the function that checks if the game is over
+            //the game is over when one of the players has no more pieces on the board
+            int whitePiecesCounter = 0, blackPiecesCounter = 0;
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (GameBoard.GetPiece(i, j).Color == EPiece.Black ||
+                        GameBoard.GetPiece(i, j).Color == EPiece.BlackKing)
+                    {
+                        blackPiecesCounter++;
+                    }
+                    else if (GameBoard.GetPiece(i, j).Color == EPiece.White ||
+                             GameBoard.GetPiece(i, j).Color == EPiece.WhiteKing)
+                    {
+                        whitePiecesCounter++;
+                    }
+                }
+            }
+
+            if (blackPiecesCounter == 0)
+            {
+                return EPiece.White;
+            }
+
+            if (whitePiecesCounter == 0)
+            {
+                return EPiece.Black;
+            }
+            return EPiece.Empty;
         }
     }
 }
