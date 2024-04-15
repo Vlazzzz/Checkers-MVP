@@ -21,6 +21,7 @@ namespace tema2_MVP_Dame.ViewModels
         public ICommand SaveGameCommand { get; private set; }
         public ICommand LoadGameCommand { get; private set; }
         public ICommand ResetGameCommand { get; private set; }
+        //public ICommand AlowMultipleJumpsCommand { get; private set; }
         public static bool CanExecute() => true;
 
         public ObservableCollection<Cell> Cells { get; set; }
@@ -61,11 +62,18 @@ namespace tema2_MVP_Dame.ViewModels
             SaveGameCommand = new RelayCommand(SaveGame);
             LoadGameCommand = new RelayCommand(LoadGame);
             ResetGameCommand = new RelayCommand(ResetGame);
+            //AlowMultipleJumpsCommand = new RelayCommand(AllowMultipleJumps);
 
             LoadWinHistoryFromFile("D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Resources\\win_history.txt");
 
             UpdateCells();
         }
+
+        //bool allowMultipleJumps = false;
+        //private void AllowMultipleJumps(object obj)
+        //{
+        //    allowMultipleJumps = true;
+        //}
 
         private void LoadWinHistoryFromFile(string filename)
         {
@@ -162,12 +170,17 @@ namespace tema2_MVP_Dame.ViewModels
                 firstClick = true;
                 pieceCaptured = false;
             }
-
             else if (firstClick && !secondClick)
             {
                 secondRow = clickedCell.Row;
                 secondColumn = clickedCell.Column;
                 secondClick = true;
+                //if (pieceCaptured)
+                //{
+                    //show capture potential moves
+                    //game.CapturePieceCheck(firstRow, firstColumn);
+               // }
+                //pieceCaptured = false;
             }
 
             if (firstRow == secondRow && firstColumn == secondColumn)
@@ -180,9 +193,15 @@ namespace tema2_MVP_Dame.ViewModels
             if (firstClick && !secondClick)
             {
                 if (game.IsBlackTurn && (game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.Black || game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.BlackKing))
-                    game.ShowPotentialMoves(firstRow, firstColumn);
+                {
+                    if(!pieceCaptured)
+                        game.ShowPotentialMoves(firstRow, firstColumn);
+                }
                 else if (!game.IsBlackTurn && (game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White || game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.WhiteKing))
-                    game.ShowPotentialMoves(firstRow, firstColumn);
+                {
+                    if(!pieceCaptured)
+                        game.ShowPotentialMoves(firstRow, firstColumn);
+                }
                 else
                 {
                     ResetClicks();
