@@ -652,6 +652,9 @@ namespace tema2_MVP_Dame.Models
                     }
                 }
             }
+
+            ResetHighlightedCells();
+
             //if the black player forced the white one the first to have all his pieces blocked, the black player wins
             if(IsBlackTurn)
             {

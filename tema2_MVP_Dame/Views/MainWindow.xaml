@@ -42,7 +42,7 @@
         <TextBlock HorizontalAlignment="Center" Margin="0,-121,0,0" TextWrapping="Wrap" Text="CHECKERS" VerticalAlignment="Top" Height="91" Width="298" TextAlignment="Center" FontSize="90" FontFamily="Bahnschrift SemiBold Condensed" FontWeight="Bold" RenderTransformOrigin="0.489,0.216"/>
 
         <!-- Add the image buttons -->
-        <Button  Command="{Binding SaveGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="282,0,0,-79" VerticalAlignment="Bottom" Height="61" Width="60" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
+        <Button  Command="{Binding SaveGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="290,0,0,-79" VerticalAlignment="Bottom" Height="53" Width="52" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="Transparent" CornerRadius="10">
@@ -52,7 +52,7 @@
             </Button.Template>
         </Button>
 
-        <Button  Command="{Binding LoadGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="346,0,0,-79" VerticalAlignment="Bottom" Height="59" Width="58" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
+        <Button  Command="{Binding LoadGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="347,0,0,-79" VerticalAlignment="Bottom" Height="52" Width="52" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="Transparent" CornerRadius="10">
@@ -62,11 +62,11 @@
             </Button.Template>
         </Button>
 
-        <Button  Command="{Binding ResetGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="127,0,0,-88" VerticalAlignment="Bottom" Height="89" Width="179" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
+        <Button  Command="{Binding ResetGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="124,0,0,-90" VerticalAlignment="Bottom" Height="88" Width="177" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Background="Black" CornerRadius="10" Margin="19,24,32,12">
-                        <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" FontFamily="Bahnschrift SemiBold Condensed" FontSize="36" Text="RESTART" Margin="0,0,3,0" Height="39"/>
+                    <Border Background="Black" CornerRadius="10" Margin="29,24,32,16">
+                        <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" FontFamily="Bahnschrift SemiBold Condensed" FontSize="33" Text="RESTART" Margin="6,0,6,0" Height="35"/>
                     </Border>
                 </ControlTemplate>
             </Button.Template>
@@ -81,10 +81,10 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <TextBlock x:Name="WinHistoryBlack" Foreground="Black" FontFamily="Bahnschrift SemiBold Condensed" FontSize="36" Text="{Binding WinHistoryBlackText}" HorizontalAlignment="Left" Margin="20,0,0,-84" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="17" Grid.Row="1"/>
-        <TextBlock x:Name="WinHistoryWhite" Foreground="White" FontFamily="Bahnschrift SemiBold Condensed" FontSize="36" Text="{Binding WinHistoryWhiteText}" HorizontalAlignment="Left" Margin="88,0,0,-85" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="17" Grid.Row="1"/>
-        <TextBlock Foreground="Black" FontFamily="Bahnschrift SemiBold Condensed" FontSize="36" Text="Win History" HorizontalAlignment="Left" Margin="0,0,0,-50" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="134" Grid.Row="1"/>
-        <Image Source="../Resources/info.png" HorizontalAlignment="Left" Height="36" Margin="461,-121,0,0" VerticalAlignment="Top" Width="38">
+        <TextBlock x:Name="WinHistoryBlack" Foreground="Black" FontFamily="Bahnschrift SemiBold Condensed" FontSize="33" Text="{Binding WinHistoryBlackText}" HorizontalAlignment="Left" Margin="42,0,0,-86" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="17" Grid.Row="1"/>
+        <TextBlock x:Name="WinHistoryWhite" Foreground="White" FontFamily="Bahnschrift SemiBold Condensed" FontSize="33" Text="{Binding WinHistoryWhiteText}" HorizontalAlignment="Left" Margin="68,0,0,-86" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="17" Grid.Row="1"/>
+        <TextBlock Foreground="Black" FontFamily="Bahnschrift SemiBold Condensed" FontSize="33" Text="Win History" HorizontalAlignment="Left" Margin="0,0,0,-50" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="134" Grid.Row="1"/>
+        <Image Source="../Resources/info.png" HorizontalAlignment="Left" Height="36" Margin="461,-103,0,0" VerticalAlignment="Top" Width="38">
             <Image.ToolTip>
                 <ToolTip>
                     <StackPanel>
@@ -102,9 +102,47 @@
                 </ToolTip>
             </Image.ToolTip>
         </Image>
-        <TextBlock Foreground="Black" FontFamily="Bahnschrift SemiBold Condensed" FontSize="30" HorizontalAlignment="Left" Margin="59,0,0,-80" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="30" Width="8" Grid.Row="1" Text="|"/>
-        <!--<RadioButton Command="{Binding AllowMultipleJumpsCommand}" HorizontalAlignment="Left" Margin="454,0,0,-83" VerticalAlignment="Bottom" Height="16" Width="17" Grid.Row="1"/>
-        <TextBlock FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" HorizontalAlignment="Left" Margin="422,0,0,-61" Grid.Row="1" TextAlignment="Center" TextWrapping="Wrap" Text="Allow Multiple Jumps" VerticalAlignment="Bottom" Width="81" Height="37"/>-->
+        <TextBlock Foreground="Black" FontFamily="Bahnschrift SemiBold Condensed" FontSize="30" HorizontalAlignment="Left" Margin="59,0,0,-79" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="30" Width="8" Grid.Row="1" Text="|"/>
+        <RadioButton IsChecked="{Binding AllowMultipleJumpsCheck, Mode=TwoWay}" HorizontalAlignment="Left" Margin="441,0,0,-83" VerticalAlignment="Bottom" Height="16" Width="17" Grid.Row="1"/>
+        <TextBlock FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" HorizontalAlignment="Left" Margin="409,0,0,-64" Grid.Row="1" TextAlignment="Center" TextWrapping="Wrap" Text="Allow Multiple Jumps" VerticalAlignment="Bottom" Width="81" Height="37"/>
+        <TextBlock HorizontalAlignment="Left" Margin="585,488,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock FontFamily="Bahnschrift SemiBold Condensed" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" TextAlignment="Center" TextWrapping="Wrap" Text="Remaining black pieces:" Width="398" Height="37" Margin="0,26,-436,0" Grid.Row="1">
+            <TextBlock.RenderTransform>
+                <RotateTransform Angle="90" />
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock Foreground="White" FontFamily="Bahnschrift SemiBold Condensed" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" TextAlignment="Center" TextWrapping="Wrap" Text="Remaining white pieces:" Width="351" Height="37" Margin="0,426,193,0" Grid.Row="1">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="270"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+
+        <TextBlock Foreground="White" FontFamily="Bahnschrift SemiBold Condensed" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" TextAlignment="Center" TextWrapping="Wrap" Text="{Binding WhitePiecesRemaining}" Width="112" Height="37" Margin="0,169,432,0" Grid.Row="1">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="269.276"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+
+        <TextBlock FontFamily="Bahnschrift SemiBold Condensed" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" TextAlignment="Center" TextWrapping="Wrap" Text="{Binding BlackPiecesRemaining}" Width="54" Height="37" Margin="0,332,-92,0" Grid.Row="1">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="89.89"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
 
 
     </Grid>

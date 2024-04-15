@@ -21,7 +21,6 @@ namespace tema2_MVP_Dame.ViewModels
         public ICommand SaveGameCommand { get; private set; }
         public ICommand LoadGameCommand { get; private set; }
         public ICommand ResetGameCommand { get; private set; }
-        //public ICommand AlowMultipleJumpsCommand { get; private set; }
         public static bool CanExecute() => true;
 
         public ObservableCollection<Cell> Cells { get; set; }
@@ -48,6 +47,51 @@ namespace tema2_MVP_Dame.ViewModels
             }
         }
 
+        private bool _allowMultipleJumpsCheck;
+
+        public bool AllowMultipleJumpsCheck
+        {
+            get { return _allowMultipleJumpsCheck; }
+            set
+            {
+                if (_allowMultipleJumpsCheck != value)
+                {
+                    _allowMultipleJumpsCheck = value;
+                    OnPropertyChanged(nameof(AllowMultipleJumpsCheck));
+                }
+            }
+        }
+
+        private int _blackPiecesRemaining;
+
+        public int BlackPiecesRemaining
+        {
+            get { return _blackPiecesRemaining; }
+            set
+            {
+                if (_blackPiecesRemaining != value)
+                {
+                    _blackPiecesRemaining = value;
+                    OnPropertyChanged(nameof(BlackPiecesRemaining));
+                }
+            }
+        }
+
+        private int _whitePiecesRemaining;
+
+        public int WhitePiecesRemaining
+        {
+            get { return _whitePiecesRemaining; }
+            set
+            {
+                if (_whitePiecesRemaining != value)
+                {
+                    _whitePiecesRemaining = value;
+                    OnPropertyChanged(nameof(WhitePiecesRemaining));
+                }
+            }
+        }
+
         //fac o functie updateCells care sa imi faca update la observable collection de fiecare data cand se schimba ceva in game
 
         public MainViewModel()
@@ -62,18 +106,16 @@ namespace tema2_MVP_Dame.ViewModels
             SaveGameCommand = new RelayCommand(SaveGame);
             LoadGameCommand = new RelayCommand(LoadGame);
             ResetGameCommand = new RelayCommand(ResetGame);
-            //AlowMultipleJumpsCommand = new RelayCommand(AllowMultipleJumps);
+
+            AllowMultipleJumpsCheck = false;
+            WhitePiecesRemaining = 12;
+            BlackPiecesRemaining = 12;
 
             LoadWinHistoryFromFile("D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Resources\\win_history.txt");
 
             UpdateCells();
         }
 
-        //bool allowMultipleJumps = false;
-        //private void AllowMultipleJumps(object obj)
-        //{
-        //    allowMultipleJumps = true;
-        //}
 
         private void LoadWinHistoryFromFile(string filename)
         {
@@ -94,6 +136,7 @@ namespace tema2_MVP_Dame.ViewModels
             LoadWinHistoryFromFile("D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Resources\\win_history.txt");
             game.ResetGame();
             UpdateCells();
+            AllowMultipleJumpsCheck = false;
         }
 
         private void SaveGame(object obj)
@@ -157,6 +200,9 @@ namespace tema2_MVP_Dame.ViewModels
             }
         }
 
+        //daca fac mutare multipla si nu mai vreau sa mut piesa si apas pe orice piesa astfel incat sa resetez clickurile
+        //si dau switch turn, nu mai merge sa schimb tura; merge doaar cand inca pozitiile sunt highlighted
+
         private bool canSwitchTurn = false;
         private bool pieceCaptured = false;
         private void CellClick(object parameter)
@@ -175,16 +221,22 @@ namespace tema2_MVP_Dame.ViewModels
                 secondRow = clickedCell.Row;
                 secondColumn = clickedCell.Column;
                 secondClick = true;
-                //if (pieceCaptured)
-                //{
-                    //show capture potential moves
-                    //game.CapturePieceCheck(firstRow, firstColumn);
-               // }
-                //pieceCaptured = false;
+            }
+
+            if (firstClick && secondClick && pieceCaptured)
+            {
+                if (game.GameBoard.GetPiece(secondRow, secondColumn).Color != EPiece.IsHighlighted)
+                {
+                    secondClick = false;
+                    secondRow = -1;
+                    secondColumn = -1;
+                    return;
+                }
             }
 
             if (firstRow == secondRow && firstColumn == secondColumn)
-            {
+            { 
+                //in cazul erorii cu miscarea multipla si switch turn
                 ResetClicks();
                 UpdateCells();
                 game.ResetHighlightedCells();
@@ -193,14 +245,12 @@ namespace tema2_MVP_Dame.ViewModels
             if (firstClick && !secondClick)
             {
                 if (game.IsBlackTurn && (game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.Black || game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.BlackKing))
-                {
-                    if(!pieceCaptured)
-                        game.ShowPotentialMoves(firstRow, firstColumn);
+                { 
+                    game.ShowPotentialMoves(firstRow, firstColumn);
                 }
                 else if (!game.IsBlackTurn && (game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.White || game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.WhiteKing))
                 {
-                    if(!pieceCaptured)
-                        game.ShowPotentialMoves(firstRow, firstColumn);
+                    game.ShowPotentialMoves(firstRow, firstColumn);
                 }
                 else
                 {
@@ -226,29 +276,42 @@ namespace tema2_MVP_Dame.ViewModels
                     {
                         game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
                         //verificare daca a fost o capturare pentru a vedea daca mai am mutari posibile
-                        if (firstRow == secondRow + 2 || firstRow == secondRow - 2)
+                        if(AllowMultipleJumpsCheck)
                         {
-                            //daca pot face capturari multiple, nu schimb tura si resetez al doilea click astfel incat sa pot continua capturarea
-                            if (game.CapturePieceCheck(secondRow, secondColumn) != false)
+                            if (firstRow == secondRow + 2 || firstRow == secondRow - 2)
                             {
-                                pieceCaptured = true;
-                                canSwitchTurn = false;
-                                //firstClick = false;
-                                secondClick = false;
-                                firstRow = secondRow;
-                                firstColumn = secondColumn;
-                                secondRow = -1;
-                                secondColumn = -1;
+                                WhitePiecesRemaining--;
+                                //daca pot face capturari multiple, nu schimb tura si resetez al doilea click astfel incat sa pot continua capturarea
+                                if (game.CapturePieceCheck(secondRow, secondColumn) != false)
+                                {
+                                    pieceCaptured = true;
+                                    canSwitchTurn = false;
+                                    //firstClick = false;
+                                    secondClick = false;
+                                    firstRow = secondRow;
+                                    firstColumn = secondColumn;
+                                    secondRow = -1;
+                                    secondColumn = -1;
+                                }
+                                else
+                                {
+                                    canSwitchTurn = true;
+                                    ResetClicks();
+                                }
                             }
+                            //daca nu pot face capturari multiple, schimb tura si resetez clickurile
                             else
                             {
                                 canSwitchTurn = true;
                                 ResetClicks();
                             }
                         }
-                        //daca nu pot face capturari multiple, schimb tura si resetez clickurile
                         else
                         {
+                            if (firstRow == secondRow + 2 || firstRow == secondRow - 2)
+                            {
+                                WhitePiecesRemaining--;
+                            }
                             canSwitchTurn = true;
                             ResetClicks();
                         }
@@ -258,29 +321,42 @@ namespace tema2_MVP_Dame.ViewModels
                                               game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.WhiteKing))
                     {
                         game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
-                        if (firstRow == secondRow + 2 || firstRow == secondRow - 2)
+                        if(AllowMultipleJumpsCheck)
                         {
-                            //daca pot face capturari multiple, nu schimb tura si resetez al doilea click astfel incat sa pot continua capturarea
-                            if (game.CapturePieceCheck(secondRow, secondColumn) != false)
+                            if (firstRow == secondRow + 2 || firstRow == secondRow - 2)
                             {
-                                pieceCaptured = true;
-                                canSwitchTurn = false;
-                                //firstClick = false;
-                                secondClick = false;
-                                firstRow = secondRow;
-                                firstColumn = secondColumn;
-                                secondRow = -1;
-                                secondColumn = -1;
+                                BlackPiecesRemaining--;
+                                //daca pot face capturari multiple, nu schimb tura si resetez al doilea click astfel incat sa pot continua capturarea
+                                if (game.CapturePieceCheck(secondRow, secondColumn) != false)
+                                {
+                                    pieceCaptured = true;
+                                    canSwitchTurn = false;
+                                    //firstClick = false;
+                                    secondClick = false;
+                                    firstRow = secondRow;
+                                    firstColumn = secondColumn;
+                                    secondRow = -1;
+                                    secondColumn = -1;
+                                }
+                                else
+                                {
+                                    canSwitchTurn = true;
+                                    ResetClicks();
+                                }
                             }
+                            //daca nu pot face capturari multiple, schimb tura si resetez clickurile
                             else
                             {
                                 canSwitchTurn = true;
                                 ResetClicks();
                             }
                         }
-                        //daca nu pot face capturari multiple, schimb tura si resetez clickurile
                         else
                         {
+                            if (firstRow == secondRow + 2 || firstRow == secondRow - 2)
+                            {
+                                BlackPiecesRemaining--;
+                            }
                             canSwitchTurn = true;
                             ResetClicks();
                         }
@@ -347,5 +423,3 @@ namespace tema2_MVP_Dame.ViewModels
     }
 
 }
-
-// de implementat remiza
