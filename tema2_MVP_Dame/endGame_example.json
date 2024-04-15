@@ -1,0 +1,199 @@
+{
+  "GameBoard": [
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 0
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 0
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 2
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    }
+  ],
+  "Player1": null,
+  "Player2": null,
+  "IsBlackTurn": true
+}

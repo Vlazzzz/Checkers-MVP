@@ -29,8 +29,8 @@ namespace tema2_MVP_Dame.Models
             for (int col = 1; col < 8; col += 2)
             {
                 squares[0, col] = new Piece(EPiece.White);
-                squares[2, col]= new Piece(EPiece.White);
-                squares[6, col]= new Piece(EPiece.Black);
+                squares[2, col] = new Piece(EPiece.White);
+                squares[6, col] = new Piece(EPiece.Black);
             }
 
             // Inițializarea pieselor albe pe a doua linie

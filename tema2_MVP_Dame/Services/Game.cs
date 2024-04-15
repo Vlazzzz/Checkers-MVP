@@ -160,7 +160,7 @@ namespace tema2_MVP_Dame.Models
 
                 if (sourcePieceRow - 1 >= 0 && sourcePieceColumn - 1 >= 0 &&
                     (GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color == EPiece.Black ||
-                     GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.BlackKing))
+                     GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color == EPiece.BlackKing))
                 {
                     if (sourcePieceRow - 2 >= 0 && sourcePieceColumn - 2 >= 0 &&
                         GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color == EPiece.Empty)
@@ -210,7 +210,7 @@ namespace tema2_MVP_Dame.Models
 
                 if (sourcePieceRow - 1 >= 0 && sourcePieceColumn - 1 >= 0 &&
                     (GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color == EPiece.White ||
-                     GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.WhiteKing))
+                     GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color == EPiece.WhiteKing))
                 {
                     if (sourcePieceRow - 2 >= 0 && sourcePieceColumn - 2 >= 0 &&
                         GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color == EPiece.Empty)
@@ -541,5 +541,19 @@ namespace tema2_MVP_Dame.Models
                 Console.WriteLine($"Error loading the game: {ex.Message}");
             }
         }
+
+        public bool IsGameOver()
+        {
+            //
+            return true;
+        }
     }
 }
+
+//bug: daca apas pe orice linie incepand cu a doua si ultima coloana si am piesa alba rege, da crash
+//bug: nu pot captura piese cu piesele rege pe ultima coloana
+//nu pot captura in sus stanga piesa neagra rege cu piesa alba rege; dupa ce nu pot captura piesa, in urmatoarea runda imi apare ca highlight pozitia de mai devreme unde ar fi trebuit sa mut
+//la fel si pentru piesa neagra rege;
+//BUG PENTRU POZITIA URMATOARE: daca piesa alba se afla stanga sus si piesa neagra se afla in dreapta jos nu pot captura piesa alba cu piesa neagra
+//                              daca mut in 2 mutari dreapta sus si piesa neagra stanga jos, o sa pot captura piesa alba cu piesa neagra DAR
+//                              DAR, voi putea face si mutarea pe care nu o puteam face mai devreme, lucru care nu ar trebui sa se intample

@@ -39,7 +39,7 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <TextBlock HorizontalAlignment="Center" Margin="0,-108,0,0" TextWrapping="Wrap" Text="CHECKERS" VerticalAlignment="Top" Height="91" Width="298" TextAlignment="Center" FontSize="90" FontFamily="Bahnschrift SemiBold Condensed" FontWeight="Bold" RenderTransformOrigin="0.489,0.216"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,-120,0,0" TextWrapping="Wrap" Text="CHECKERS" VerticalAlignment="Top" Height="91" Width="298" TextAlignment="Center" FontSize="90" FontFamily="Bahnschrift SemiBold Condensed" FontWeight="Bold" RenderTransformOrigin="0.489,0.216"/>
 
         <!-- Add the image buttons -->
         <Button  Command="{Binding SaveGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="21,0,0,-89" VerticalAlignment="Bottom" Height="78" Width="75" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
