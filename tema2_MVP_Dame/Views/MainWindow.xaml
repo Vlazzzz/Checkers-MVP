@@ -42,7 +42,7 @@
         <TextBlock HorizontalAlignment="Center" Margin="0,-121,0,0" TextWrapping="Wrap" Text="CHECKERS" VerticalAlignment="Top" Height="91" Width="298" TextAlignment="Center" FontSize="90" FontFamily="Bahnschrift SemiBold Condensed" FontWeight="Bold" RenderTransformOrigin="0.489,0.216"/>
 
         <!-- Add the image buttons -->
-        <Button  Command="{Binding SaveGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="178,0,0,-77" VerticalAlignment="Bottom" Height="61" Width="59" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
+        <Button  Command="{Binding SaveGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="347,0,0,-81" VerticalAlignment="Bottom" Height="61" Width="59" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="Transparent" CornerRadius="10">
@@ -52,7 +52,7 @@
             </Button.Template>
         </Button>
 
-        <Button  Command="{Binding LoadGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="261,0,0,-77" VerticalAlignment="Bottom" Height="59" Width="58" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
+        <Button  Command="{Binding LoadGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="430,0,0,-81" VerticalAlignment="Bottom" Height="59" Width="58" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="Transparent" CornerRadius="10">
@@ -62,7 +62,7 @@
             </Button.Template>
         </Button>
 
-        <Button  Command="{Binding ResetGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="324,0,0,-90" VerticalAlignment="Bottom" Height="94" Width="198" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
+        <Button  Command="{Binding ResetGameCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="163,0,0,-91" VerticalAlignment="Bottom" Height="94" Width="198" RenderTransformOrigin="-0.491,1.544" Grid.Row="1">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="Black" CornerRadius="10" Margin="19,24,32,12">
@@ -81,10 +81,10 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <TextBlock x:Name="WinHistoryBlack" Foreground="Black" FontFamily="Bahnschrift SemiBold Condensed" FontSize="30" Text="{Binding WinHistoryBlackText}" HorizontalAlignment="Left" Margin="21,0,0,-86" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="17" Grid.Row="1"/>
-        <TextBlock x:Name="WinHistoryWhite" Foreground="White" FontFamily="Bahnschrift SemiBold Condensed" FontSize="30" Text="{Binding WinHistoryWhiteText}" HorizontalAlignment="Left" Margin="85,0,0,-86" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="14" Grid.Row="1"/>
-        <TextBlock Foreground="Black" FontFamily="Bahnschrift SemiBold Condensed" FontSize="30" Text="Win History" HorizontalAlignment="Left" Margin="7,0,0,-53" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="115" Grid.Row="1"/>
-        <Image Source="../Resources/info.png" HorizontalAlignment="Left" Height="36" Margin="0,-112,0,0" VerticalAlignment="Top" Width="38">
+        <TextBlock x:Name="WinHistoryBlack" Foreground="Black" FontFamily="Bahnschrift SemiBold Condensed" FontSize="40" Text="{Binding WinHistoryBlackText}" HorizontalAlignment="Left" Margin="51,0,0,-85" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="17" Grid.Row="1"/>
+        <TextBlock x:Name="WinHistoryWhite" Foreground="White" FontFamily="Bahnschrift SemiBold Condensed" FontSize="40" Text="{Binding WinHistoryWhiteText}" HorizontalAlignment="Left" Margin="76,0,0,-85" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="17" Grid.Row="1"/>
+        <TextBlock Foreground="Black" FontFamily="Bahnschrift SemiBold Condensed" FontSize="40" Text="Win History" HorizontalAlignment="Left" Margin="0,0,0,-46" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="152" Grid.Row="1"/>
+        <Image Source="../Resources/info.png" HorizontalAlignment="Left" Height="36" Margin="461,-121,0,0" VerticalAlignment="Top" Width="38">
             <Image.ToolTip>
                 <ToolTip>
                     <StackPanel>
@@ -102,6 +102,7 @@
                 </ToolTip>
             </Image.ToolTip>
         </Image>
+        <TextBlock Foreground="Black" FontFamily="Bahnschrift SemiBold Condensed" FontSize="36" HorizontalAlignment="Left" Margin="68,0,0,-90" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="42" Width="8" Grid.Row="1" Text="|"/>
 
 
     </Grid>

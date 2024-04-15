@@ -680,3 +680,10 @@ namespace tema2_MVP_Dame.Models
 //BUG PENTRU POZITIA URMATOARE: daca piesa alba se afla stanga sus si piesa neagra se afla in dreapta jos nu pot captura piesa alba cu piesa neagra
 //                              daca mut in 2 mutari dreapta sus si piesa neagra stanga jos, o sa pot captura piesa alba cu piesa neagra DAR
 //                              DAR, voi putea face si mutarea pe care nu o puteam face mai devreme, lucru care nu ar trebui sa se intample
+
+
+
+//!!! MAI AM DEIMPLEMENTAT URMATOARELE: LA INCEPUT VOI PUTEA ALEGE DACA VREAU SA JOC CU SARITURI MULTIPLE SAU NU(DACA NU, VOI DEZACTIVA BUTONUL DE END TURN DE sus stanga), lucru pe care il voi
+//                                                                          tine minte si intr-un fisier pentru a pastra aceasta setare pentru urmatoarea rulare a jocului
+//                                      TREBUIE SA AFISEZ CATE PIESE MAI ARE FIECARE JUCATOR
+//                                      DE ELIMINAT DIN CONSTRUCTOR jucatorii(PLAYER1 si PLAYER2) si de sters clasa PLAYER
