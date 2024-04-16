@@ -1,5 +1,8 @@
 <h1 align="center">🎮 C# Checkers Game 🎮</h1>
 
+![image](https://github.com/Vlazzzz/Checkers-MVP/assets/132906534/5b569d28-469c-4d46-9f11-80520d2a2f46)
+
+
 <p align="center">Creator: Mandoiu Vlad Stefan<br>
 Welcome to my C# Checkers Game repository! 🚀</p>
 
@@ -13,9 +16,3 @@ Welcome to my C# Checkers Game repository! 🚀</p>
   <li>🔄 Restart: Reset the game board and start a new match with a single click.</li>
   <li>💾 Save & Load: Save your progress and continue your game later with the load feature.</li>
 </ul>
-
-<h2>Screenshots:</h2>
-![image](https://github.com/Vlazzzz/Checkers-MVP/assets/132906534/ab8515c5-4c86-4624-8470-5f0ee182d89d)
-
-
-<p>Feel free to explore the code and contribute to make this game even better! 🎉</p>
