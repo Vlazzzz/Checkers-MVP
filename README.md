@@ -1,4 +1,4 @@
-<h1 align="center">🎮 C# Checkers Game ReadMe 🎮</h1>
+<h1 align="center">🎮 C# Checkers Game 🎮</h1>
 
 <p align="center">Creator: Mandoiu Vlad Stefan<br>
 Welcome to my C# Checkers Game repository! 🚀</p>
@@ -8,7 +8,7 @@ Welcome to my C# Checkers Game repository! 🚀</p>
 
 <h2>Features:</h2>
 <ul>
-  <li>👥 Singleplayer & Multiplayer Modes: Enjoy playing against the computer or challenge your friends locally.</li>
+  <li>👥 Multiplayer Mode: Enjoy playing against your friends locally.</li>
   <li>📊 Statistics Tracking: Keep track of your gameplay stats, including wins, losses, and more.</li>
   <li>🔄 Restart: Reset the game board and start a new match with a single click.</li>
   <li>💾 Save & Load: Save your progress and continue your game later with the load feature.</li>
