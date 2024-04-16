@@ -92,8 +92,8 @@ namespace tema2_MVP_Dame.ViewModels
             }
         }
 
-        //fac o functie updateCells care sa imi faca update la observable collection de fiecare data cand se schimba ceva in game
-
+        //ALLOW MULTIPLE JUMPS poate fi activata doar daca inca nu am facut nicio mutare
+        //daca am facut o mutare si apoi dau click pe AllowMultipleJumps, nu se va activa
         public MainViewModel()
         {
             // Create an instance of GameViewModel
@@ -176,6 +176,7 @@ namespace tema2_MVP_Dame.ViewModels
                 game.LoadGame(filePath);
             }
             UpdateCells();
+            AllowMultipleJumpsCheck = false;
         }
 
 
@@ -399,23 +400,23 @@ namespace tema2_MVP_Dame.ViewModels
                     }
                     else if (piece.Color == EPiece.White)
                     {
-                        Cells.Add(new Cell(i, j, "/Resources/wp6.png"));
+                        Cells.Add(new Cell(i, j, "/Resources/white_piece.png"));
                     }
                     else if (piece.Color == EPiece.Black)
                     {
-                        Cells.Add(new Cell(i, j, "/Resources/wp7.png"));
+                        Cells.Add(new Cell(i, j, "/Resources/black_piece.png"));
                     }
                     else if (piece.Color == EPiece.IsHighlighted)
                     {
-                        Cells.Add(new Cell(i, j, "/Resources/highlight_2.jpg"));
+                        Cells.Add(new Cell(i, j, "/Resources/highlight.jpg"));
                     }
                     else if (piece.Color == EPiece.WhiteKing)
                     {
-                        Cells.Add(new Cell(i, j, "/Resources/wk3.png"));
+                        Cells.Add(new Cell(i, j, "/Resources/white_king.png"));
                     }
                     else if (piece.Color == EPiece.BlackKing)
                     {
-                        Cells.Add(new Cell(i, j, "/Resources/bk3.png"));
+                        Cells.Add(new Cell(i, j, "/Resources/black_king.png"));
                     }
                 }
             }

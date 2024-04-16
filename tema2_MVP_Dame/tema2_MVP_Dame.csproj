@@ -16,6 +16,7 @@
     <None Remove="Resources\bk3.png" />
     <None Remove="Resources\black_king.png" />
     <None Remove="Resources\black_piece.png" />
+    <None Remove="Resources\board.jpg" />
     <None Remove="Resources\Board2.png" />
     <None Remove="Resources\crown-icon-on-transparent-background-free-png - Copy.png" />
     <None Remove="Resources\crown-icon-on-transparent-background-free-png.png" />
@@ -27,6 +28,7 @@
     <None Remove="Resources\highlight_2.jpg" />
     <None Remove="Resources\info.png" />
     <None Remove="Resources\load.png" />
+    <None Remove="Resources\logo.png" />
     <None Remove="Resources\reset.png" />
     <None Remove="Resources\save.png" />
     <None Remove="Resources\save_game.png" />
@@ -56,23 +58,28 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Resources\win_history.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\bk3.png" />
-    <Resource Include="Resources\highlight_2.jpg">
-      <CopyToOutputDirectory></CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Resources\black_king.png" />
+    <Resource Include="Resources\black_piece.png" />
+    <Resource Include="Resources\board.jpg" />
+    <Resource Include="Resources\empty.png" />
+    <Resource Include="Resources\highlight.jpg" />
     <Resource Include="Resources\info.png" />
     <Resource Include="Resources\load.png" />
+    <Resource Include="Resources\logo.png" />
     <Resource Include="Resources\reset.png" />
     <Resource Include="Resources\save.png" />
-    <Resource Include="Resources\table8.jpg" />
-    <Resource Include="Resources\win_history.txt" />
-    <Resource Include="Resources\wk3.png" />
-    <Resource Include="Resources\wp6.png" />
-    <Resource Include="Resources\wp7.png" />
+    <Resource Include="Resources\white_king.png" />
+    <Resource Include="Resources\white_piece.png" />
   </ItemGroup>
 
 </Project>
