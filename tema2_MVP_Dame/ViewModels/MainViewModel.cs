@@ -21,13 +21,9 @@ namespace tema2_MVP_Dame.ViewModels
         public ICommand SaveGameCommand { get; private set; }
         public ICommand LoadGameCommand { get; private set; }
         public ICommand ResetGameCommand { get; private set; }
-       // public ICommand DisplayTurnCommand { get; private set; }
-
-        public static bool CanExecute() => true;
 
         public ObservableCollection<Cell> Cells { get; set; }
 
-        private string _winHistoryWhiteText;
         private string _winHistoryBlackText;
         public string WinHistoryBlackText
         {
@@ -38,7 +34,8 @@ namespace tema2_MVP_Dame.ViewModels
                 OnPropertyChanged(nameof(WinHistoryBlackText));
             }
         }
-        
+
+        private string _winHistoryWhiteText;
         public string WinHistoryWhiteText
         {
             get { return _winHistoryWhiteText; }
@@ -50,7 +47,6 @@ namespace tema2_MVP_Dame.ViewModels
         }
 
         private bool _allowMultipleJumpsCheck;
-
         public bool AllowMultipleJumpsCheck
         {
             get { return _allowMultipleJumpsCheck; }
@@ -63,9 +59,22 @@ namespace tema2_MVP_Dame.ViewModels
                 }
             }
         }
+        
+        private bool _allowMultipleJumpsRadioButtonState;
+        public bool AllowMultipleJumpsRadioButtonState
+        {
+            get { return _allowMultipleJumpsRadioButtonState; }
+            set
+            {
+                if (_allowMultipleJumpsRadioButtonState != value)
+                {
+                    _allowMultipleJumpsRadioButtonState = value;
+                    OnPropertyChanged(nameof(AllowMultipleJumpsRadioButtonState));
+                }
+            }
+        }
 
         private int _blackPiecesRemaining;
-
         public int BlackPiecesRemaining
         {
             get { return _blackPiecesRemaining; }
@@ -80,7 +89,6 @@ namespace tema2_MVP_Dame.ViewModels
         }
 
         private int _whitePiecesRemaining;
-
         public int WhitePiecesRemaining
         {
             get { return _whitePiecesRemaining; }
@@ -112,19 +120,17 @@ namespace tema2_MVP_Dame.ViewModels
         //daca am facut o mutare si apoi dau click pe AllowMultipleJumps, nu se va activa
         public MainViewModel()
         {
-            // Create an instance of GameViewModel
             game = new Game();
 
-            // Initialize the observable collection of cells with the cells from the game board
             Cells = new ObservableCollection<Cell>();
             CellClickCommand = new RelayCommand(CellClick);
             SwitchTurnCommand = new RelayCommand(SwitchTurn);
             SaveGameCommand = new RelayCommand(SaveGame);
             LoadGameCommand = new RelayCommand(LoadGame);
             ResetGameCommand = new RelayCommand(ResetGame);
-            //DisplayTurnCommand = new RelayCommand(DisplayTurn);
 
             AllowMultipleJumpsCheck = false;
+            AllowMultipleJumpsRadioButtonState = true;
             CurrentTurnImage = game.IsBlackTurn ? "/Resources/black_piece.png" : "/Resources/white_piece.png";
 
             WhitePiecesRemaining = game.white_pieces_remaining;
@@ -134,14 +140,6 @@ namespace tema2_MVP_Dame.ViewModels
 
             UpdateCells();
         }
-
-        //private void DisplayTurn(object obj)
-        //{
-        //    if(game.IsBlackTurn)
-        //    { }
-        //    else
-        //    { } 
-        //}
 
         private void LoadWinHistoryFromFile(string filename)
         {
@@ -157,6 +155,7 @@ namespace tema2_MVP_Dame.ViewModels
             WinHistoryWhiteText = numberOfWhiteWins.ToString();
             WinHistoryBlackText = numberOfBlackWins.ToString();
         }
+
         private void ResetGame(object obj)
         {
             LoadWinHistoryFromFile("../../../Resources/win_history.txt");
@@ -164,6 +163,7 @@ namespace tema2_MVP_Dame.ViewModels
             UpdateCells();
             CurrentTurnImage = game.IsBlackTurn ? "/Resources/black_piece.png" : "/Resources/white_piece.png";
             AllowMultipleJumpsCheck = false;
+            AllowMultipleJumpsRadioButtonState = true;
             WhitePiecesRemaining = game.white_pieces_remaining;
             BlackPiecesRemaining = game.black_pieces_remaining;
         }
@@ -209,8 +209,8 @@ namespace tema2_MVP_Dame.ViewModels
             BlackPiecesRemaining = game.black_pieces_remaining;
             WhitePiecesRemaining = game.white_pieces_remaining;
             AllowMultipleJumpsCheck = false;
+            AllowMultipleJumpsRadioButtonState = true;
         }
-
 
         //imi iau 2 variabile pt click... cand prima e null, o modific si afisez pozitiile highlighted si dupa la al doilea click fac miscarea
         bool firstClick = false, secondClick = false;
@@ -309,6 +309,7 @@ namespace tema2_MVP_Dame.ViewModels
                                              game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.BlackKing))
                     {
                         game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
+                        AllowMultipleJumpsRadioButtonState = false;
                         WhitePiecesRemaining = game.white_pieces_remaining;
                         //verificare daca a fost o capturare pentru a vedea daca mai am mutari posibile
                         if(AllowMultipleJumpsCheck)
@@ -356,6 +357,7 @@ namespace tema2_MVP_Dame.ViewModels
                                               game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.WhiteKing))
                     {
                         game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
+                        AllowMultipleJumpsRadioButtonState = false;
                         BlackPiecesRemaining = game.black_pieces_remaining;
                         if (AllowMultipleJumpsCheck)
                         {
@@ -419,7 +421,6 @@ namespace tema2_MVP_Dame.ViewModels
             secondRow = -1;
             secondColumn = -1;
         }
-
 
         void UpdateCells()
         {

@@ -26,22 +26,17 @@ namespace tema2_MVP_Dame.Models
             white_pieces_remaining = 12;
         }
 
-        public void SwitchTurn()
+        public void ShowPotentialMoves(int sourcePieceRow, int sourcePieceColumn)
         {
-            IsBlackTurn = !IsBlackTurn;
-            ResetHighlightedCells();
-        }
+            var piece = GameBoard.GetPiece(sourcePieceRow, sourcePieceColumn);
 
-        public void ResetHighlightedCells()
-        {
-            // Reset previously highlighted cells back to their original color
-            foreach (var piece in GameBoard)
-            {
-                if (piece.Color == EPiece.IsHighlighted)
-                {
-                    piece.Color = EPiece.Empty;
-                }
-            }
+            ResetHighlightedCells();
+            if (piece.Color == EPiece.WhiteKing || piece.Color == EPiece.BlackKing)
+                ShowKingPotentialMoves(sourcePieceRow, sourcePieceColumn);
+            else if (piece.Color == EPiece.White || piece.Color == EPiece.Black)
+                ShowNormalPiecePotentialMoves(sourcePieceRow, sourcePieceColumn);
+
+            CapturePieceCheck(sourcePieceRow, sourcePieceColumn);
         }
 
         private void ShowKingPotentialMoves(int sourcePieceRow, int sourcePieceColumn)
@@ -371,30 +366,6 @@ namespace tema2_MVP_Dame.Models
             }
         }
 
-        public void ShowPotentialMoves(int sourcePieceRow, int sourcePieceColumn)
-        {
-            var piece = GameBoard.GetPiece(sourcePieceRow, sourcePieceColumn);
-
-            ResetHighlightedCells();
-            if (piece.Color == EPiece.WhiteKing || piece.Color == EPiece.BlackKing)
-                ShowKingPotentialMoves(sourcePieceRow, sourcePieceColumn);
-            else if (piece.Color == EPiece.White || piece.Color == EPiece.Black)
-                ShowNormalPiecePotentialMoves(sourcePieceRow, sourcePieceColumn);
-
-            CapturePieceCheck(sourcePieceRow, sourcePieceColumn);
-        }
-
-        private void CheckIfKing()
-        {
-            for (int i = 0; i < 8; i++)
-            {
-                if (GameBoard.GetPiece(0, i).Color == EPiece.Black)
-                    GameBoard.GetPiece(0, i).Color = EPiece.BlackKing;
-                if (GameBoard.GetPiece(7, i).Color == EPiece.White)
-                    GameBoard.GetPiece(7, i).Color = EPiece.WhiteKing;
-            }
-        }
-
         public bool MovePiece(int sourcePieceRow, int sourcePieceColumn, int targetPieceRow, int targetPieceColumn)
         {
             ResetHighlightedCells();
@@ -432,6 +403,17 @@ namespace tema2_MVP_Dame.Models
             }
 
             return true; // Mutarea a fost efectuată cu succes
+        }
+
+        private void CheckIfKing()
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                if (GameBoard.GetPiece(0, i).Color == EPiece.Black)
+                    GameBoard.GetPiece(0, i).Color = EPiece.BlackKing;
+                if (GameBoard.GetPiece(7, i).Color == EPiece.White)
+                    GameBoard.GetPiece(7, i).Color = EPiece.WhiteKing;
+            }
         }
 
         private bool IsValidMove(int sourcePieceRow, int sourcePieceColumn, int targetPieceRow, int targetPieceColumn)
@@ -573,7 +555,6 @@ namespace tema2_MVP_Dame.Models
             }
         }
 
-
         public void LoadGame(string filePath)
         {
             try
@@ -702,6 +683,24 @@ namespace tema2_MVP_Dame.Models
             }
 
             return EPiece.Empty;
+        }
+
+        public void SwitchTurn()
+        {
+            IsBlackTurn = !IsBlackTurn;
+            ResetHighlightedCells();
+        }
+
+        public void ResetHighlightedCells()
+        {
+            // Reset previously highlighted cells back to their original color
+            foreach (var piece in GameBoard)
+            {
+                if (piece.Color == EPiece.IsHighlighted)
+                {
+                    piece.Color = EPiece.Empty;
+                }
+            }
         }
     }
 }
