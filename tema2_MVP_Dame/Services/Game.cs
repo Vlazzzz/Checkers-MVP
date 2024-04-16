@@ -15,11 +15,15 @@ namespace tema2_MVP_Dame.Models
         public Player Player2 { get; set; }
         public bool IsBlackTurn { get; internal set; }
 
+        public int black_pieces_remaining, white_pieces_remaining;
+
         public Game()
         {
             // Inițializează tabla de joc
             GameBoard = new Board();
             IsBlackTurn = true; //black always starts
+            black_pieces_remaining = 12;
+            white_pieces_remaining = 12;
         }
 
         public void SwitchTurn()
@@ -392,6 +396,10 @@ namespace tema2_MVP_Dame.Models
             {
                 GameBoard.RemovePiece((sourcePieceRow + targetPieceRow) / 2,
                     (sourcePieceColumn + targetPieceColumn) / 2);
+                if (IsBlackTurn)
+                    white_pieces_remaining--;
+                else
+                    black_pieces_remaining--;
             }
 
             CheckIfKing();
@@ -399,14 +407,14 @@ namespace tema2_MVP_Dame.Models
             if (IsGameOver() == EPiece.Black)
             {
                 MessageBox.Show("Black wins", "Game Over", MessageBoxButton.OK, MessageBoxImage.Information);
-                UpdateWinHistoryInFile("D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Resources\\win_history.txt");
+                UpdateWinHistoryInFile("../../../Resources/win_history.txt");
                 //GameBoard.ResetBoard();
                 //IsBlackTurn = true;
             }
             else if (IsGameOver() == EPiece.White)
             {
                 MessageBox.Show("White wins", "Game Over", MessageBoxButton.OK, MessageBoxImage.Information);
-                UpdateWinHistoryInFile("D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Resources\\win_history.txt");
+                UpdateWinHistoryInFile("../../../Resources/win_history.txt");
                 //GameBoard.ResetBoard();
                 //IsBlackTurn = true;
             }
@@ -493,6 +501,8 @@ namespace tema2_MVP_Dame.Models
             //reset the gameboard
             GameBoard.ResetBoard();
             IsBlackTurn = true;
+            black_pieces_remaining = 12;
+            white_pieces_remaining = 12;
         }
 
         public void UpdateWinHistoryInFile(string filename)
@@ -533,6 +543,8 @@ namespace tema2_MVP_Dame.Models
                 }
             }
 
+            savedGame.white_pieces_remaining = white_pieces_remaining;
+            savedGame.black_pieces_remaining = black_pieces_remaining;
             savedGame.IsBlackTurn = IsBlackTurn;
 
             // Serialize the current game instance and save the data to the specified file in JSON format
@@ -559,6 +571,12 @@ namespace tema2_MVP_Dame.Models
 
                 // Parse the JSON data manually
                 JObject jsonObject = JObject.Parse(jsonData);
+
+                int whitePieces_remaining = (int)jsonObject["white_pieces_remaining"];
+                white_pieces_remaining = whitePieces_remaining;
+
+                int blackPieces_remaining = (int)jsonObject["black_pieces_remaining"];
+                black_pieces_remaining = blackPieces_remaining;
 
                 // Populate the GameBoard manually
                 JArray boardArray = (JArray)jsonObject["GameBoard"];

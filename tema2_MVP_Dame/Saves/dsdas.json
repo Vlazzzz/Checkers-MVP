@@ -1,6 +1,6 @@
 {
-  "black_pieces_remaining": 12,
-  "white_pieces_remaining": 12,
+  "black_pieces_remaining": 11,
+  "white_pieces_remaining": 9,
   "GameBoard": [
     {
       "Color": 4
@@ -54,33 +54,6 @@
       "Color": 4
     },
     {
-      "Color": 0
-    },
-    {
-      "Color": 4
-    },
-    {
-      "Color": 4
-    },
-    {
-      "Color": 4
-    },
-    {
-      "Color": 0
-    },
-    {
-      "Color": 4
-    },
-    {
-      "Color": 0
-    },
-    {
-      "Color": 4
-    },
-    {
-      "Color": 4
-    },
-    {
       "Color": 2
     },
     {
@@ -99,30 +72,6 @@
       "Color": 4
     },
     {
-      "Color": 4
-    },
-    {
-      "Color": 2
-    },
-    {
-      "Color": 4
-    },
-    {
-      "Color": 4
-    },
-    {
-      "Color": 4
-    },
-    {
-      "Color": 2
-    },
-    {
-      "Color": 4
-    },
-    {
-      "Color": 2
-    },
-    {
       "Color": 2
     },
     {
@@ -150,7 +99,52 @@
       "Color": 4
     },
     {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
       "Color": 2
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 2
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
+      "Color": 4
     },
     {
       "Color": 4
@@ -168,6 +162,12 @@
       "Color": 4
     },
     {
+      "Color": 4
+    },
+    {
+      "Color": 4
+    },
+    {
       "Color": 2
     },
     {
@@ -183,7 +183,7 @@
       "Color": 4
     },
     {
-      "Color": 4
+      "Color": 2
     },
     {
       "Color": 4

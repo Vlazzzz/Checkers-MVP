@@ -145,6 +145,10 @@
             </TextBlock.RenderTransform>
         </TextBlock>
         <TextBlock FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" HorizontalAlignment="Left" Margin="406,0,0,-64" Grid.Row="1" TextAlignment="Center" TextWrapping="Wrap" Text=" Jumps" VerticalAlignment="Bottom" Width="81" Height="22"/>
+        <TextBlock FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" HorizontalAlignment="Left" Margin="10,-30,0,0" TextAlignment="Center" TextWrapping="Wrap" Text="TURN" VerticalAlignment="Top" Width="42" Height="19"/>
+        <Image Source="{Binding CurrentTurnImage}" HorizontalAlignment="Left" Height="17" Margin="0,-30,0,0" VerticalAlignment="Top" Width="18">
+        </Image>
+
 
 
     </Grid>

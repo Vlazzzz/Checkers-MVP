@@ -21,6 +21,8 @@ namespace tema2_MVP_Dame.ViewModels
         public ICommand SaveGameCommand { get; private set; }
         public ICommand LoadGameCommand { get; private set; }
         public ICommand ResetGameCommand { get; private set; }
+       // public ICommand DisplayTurnCommand { get; private set; }
+
         public static bool CanExecute() => true;
 
         public ObservableCollection<Cell> Cells { get; set; }
@@ -92,6 +94,20 @@ namespace tema2_MVP_Dame.ViewModels
             }
         }
 
+        private string _currentTurnImage;
+        public string CurrentTurnImage
+        {
+            get { return _currentTurnImage; }
+            set
+            {
+                if (_currentTurnImage != value)
+                {
+                    _currentTurnImage = value;
+                    OnPropertyChanged(nameof(CurrentTurnImage));
+                }
+            }
+        }
+
         //ALLOW MULTIPLE JUMPS poate fi activata doar daca inca nu am facut nicio mutare
         //daca am facut o mutare si apoi dau click pe AllowMultipleJumps, nu se va activa
         public MainViewModel()
@@ -106,16 +122,26 @@ namespace tema2_MVP_Dame.ViewModels
             SaveGameCommand = new RelayCommand(SaveGame);
             LoadGameCommand = new RelayCommand(LoadGame);
             ResetGameCommand = new RelayCommand(ResetGame);
+            //DisplayTurnCommand = new RelayCommand(DisplayTurn);
 
             AllowMultipleJumpsCheck = false;
-            WhitePiecesRemaining = 12;
-            BlackPiecesRemaining = 12;
+            CurrentTurnImage = game.IsBlackTurn ? "/Resources/black_piece.png" : "/Resources/white_piece.png";
 
-            LoadWinHistoryFromFile("D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Resources\\win_history.txt");
+            WhitePiecesRemaining = game.white_pieces_remaining;
+            BlackPiecesRemaining = game.black_pieces_remaining;
+
+            LoadWinHistoryFromFile("../../../Resources/win_history.txt");
 
             UpdateCells();
         }
 
+        //private void DisplayTurn(object obj)
+        //{
+        //    if(game.IsBlackTurn)
+        //    { }
+        //    else
+        //    { } 
+        //}
 
         private void LoadWinHistoryFromFile(string filename)
         {
@@ -133,10 +159,13 @@ namespace tema2_MVP_Dame.ViewModels
         }
         private void ResetGame(object obj)
         {
-            LoadWinHistoryFromFile("D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\Resources\\win_history.txt");
+            LoadWinHistoryFromFile("../../../Resources/win_history.txt");
             game.ResetGame();
             UpdateCells();
+            CurrentTurnImage = game.IsBlackTurn ? "/Resources/black_piece.png" : "/Resources/white_piece.png";
             AllowMultipleJumpsCheck = false;
+            WhitePiecesRemaining = game.white_pieces_remaining;
+            BlackPiecesRemaining = game.black_pieces_remaining;
         }
 
         private void SaveGame(object obj)
@@ -176,6 +205,9 @@ namespace tema2_MVP_Dame.ViewModels
                 game.LoadGame(filePath);
             }
             UpdateCells();
+            CurrentTurnImage = game.IsBlackTurn ? "/Resources/black_piece.png" : "/Resources/white_piece.png";
+            BlackPiecesRemaining = game.black_pieces_remaining;
+            WhitePiecesRemaining = game.white_pieces_remaining;
             AllowMultipleJumpsCheck = false;
         }
 
@@ -191,6 +223,7 @@ namespace tema2_MVP_Dame.ViewModels
             if(pieceCaptured == true)
             {
                 game.SwitchTurn();
+                CurrentTurnImage = game.IsBlackTurn ? "/Resources/black_piece.png" : "/Resources/white_piece.png";
                 firstClick = false;
                 secondClick = false;
                 firstRow = -1;
@@ -276,12 +309,13 @@ namespace tema2_MVP_Dame.ViewModels
                                              game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.BlackKing))
                     {
                         game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
+                        WhitePiecesRemaining = game.white_pieces_remaining;
                         //verificare daca a fost o capturare pentru a vedea daca mai am mutari posibile
                         if(AllowMultipleJumpsCheck)
                         {
                             if (firstRow == secondRow + 2 || firstRow == secondRow - 2)
                             {
-                                WhitePiecesRemaining--;
+                                //WhitePiecesRemaining--;
                                 //daca pot face capturari multiple, nu schimb tura si resetez al doilea click astfel incat sa pot continua capturarea
                                 if (game.CapturePieceCheck(secondRow, secondColumn) != false)
                                 {
@@ -311,7 +345,7 @@ namespace tema2_MVP_Dame.ViewModels
                         {
                             if (firstRow == secondRow + 2 || firstRow == secondRow - 2)
                             {
-                                WhitePiecesRemaining--;
+                                WhitePiecesRemaining = game.white_pieces_remaining;
                             }
                             canSwitchTurn = true;
                             ResetClicks();
@@ -322,11 +356,12 @@ namespace tema2_MVP_Dame.ViewModels
                                               game.GameBoard.GetPiece(firstRow, firstColumn).Color == EPiece.WhiteKing))
                     {
                         game.MovePiece(firstRow, firstColumn, secondRow, secondColumn);
-                        if(AllowMultipleJumpsCheck)
+                        BlackPiecesRemaining = game.black_pieces_remaining;
+                        if (AllowMultipleJumpsCheck)
                         {
                             if (firstRow == secondRow + 2 || firstRow == secondRow - 2)
                             {
-                                BlackPiecesRemaining--;
+                                //BlackPiecesRemaining--;
                                 //daca pot face capturari multiple, nu schimb tura si resetez al doilea click astfel incat sa pot continua capturarea
                                 if (game.CapturePieceCheck(secondRow, secondColumn) != false)
                                 {
@@ -356,7 +391,7 @@ namespace tema2_MVP_Dame.ViewModels
                         {
                             if (firstRow == secondRow + 2 || firstRow == secondRow - 2)
                             {
-                                BlackPiecesRemaining--;
+                                BlackPiecesRemaining = game.black_pieces_remaining;
                             }
                             canSwitchTurn = true;
                             ResetClicks();
@@ -368,6 +403,7 @@ namespace tema2_MVP_Dame.ViewModels
             if (canSwitchTurn)
             {
                 game.SwitchTurn();
+                CurrentTurnImage = game.IsBlackTurn ? "/Resources/black_piece.png" : "/Resources/white_piece.png";
                 canSwitchTurn = false;
             }
 

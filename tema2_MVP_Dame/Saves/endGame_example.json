@@ -1,4 +1,6 @@
 {
+  "black_pieces_remaining": 1,
+  "white_pieces_remaining": 2,
   "GameBoard": [
     {
       "Color": 4
