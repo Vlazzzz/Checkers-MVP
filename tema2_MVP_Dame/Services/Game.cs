@@ -128,6 +128,7 @@ namespace tema2_MVP_Dame.Models
             // Check for capturing opponent's pieces
             if (GameBoard.GetPiece(sourcePieceRow, sourcePieceColumn).Color == EPiece.WhiteKing)
             {
+                bool canCapture = false;
                 if (sourcePieceRow + 1 < 8 && sourcePieceColumn + 1 < 8 &&
                     (GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.Black ||
                      GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.BlackKing))
@@ -136,7 +137,7 @@ namespace tema2_MVP_Dame.Models
                         GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn + 2).Color == EPiece.Empty)
                     {
                         GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn + 2).Color = EPiece.IsHighlighted;
-                        return true;
+                        canCapture = true;
                     }
                 }
 
@@ -148,7 +149,7 @@ namespace tema2_MVP_Dame.Models
                         GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn - 2).Color == EPiece.Empty)
                     {
                         GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn - 2).Color = EPiece.IsHighlighted;
-                        return true;
+                        canCapture = true;
                     }
                 }
 
@@ -160,7 +161,7 @@ namespace tema2_MVP_Dame.Models
                         GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn + 2).Color == EPiece.Empty)
                     {
                         GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn + 2).Color = EPiece.IsHighlighted;
-                        return true;
+                        canCapture = true;
                     }
                 }
 
@@ -172,12 +173,15 @@ namespace tema2_MVP_Dame.Models
                         GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color == EPiece.Empty)
                     {
                         GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color = EPiece.IsHighlighted;
-                        return true;
+                        canCapture = true;
                     }
                 }
+                if(canCapture)
+                    return true;
             }
             else if (GameBoard.GetPiece(sourcePieceRow, sourcePieceColumn).Color == EPiece.BlackKing)
             {
+                bool canCapture = false;
                 if (sourcePieceRow + 1 < 8 && sourcePieceColumn + 1 < 8 &&
                     (GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.White ||
                      GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.WhiteKing))
@@ -186,7 +190,7 @@ namespace tema2_MVP_Dame.Models
                         GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn + 2).Color == EPiece.Empty)
                     {
                         GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn + 2).Color = EPiece.IsHighlighted;
-                        return true;
+                        canCapture = true;
                     }
                 }
 
@@ -198,7 +202,7 @@ namespace tema2_MVP_Dame.Models
                         GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn - 2).Color == EPiece.Empty)
                     {
                         GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn - 2).Color = EPiece.IsHighlighted;
-                        return true;
+                        canCapture = true;
                     }
                 }
 
@@ -210,7 +214,7 @@ namespace tema2_MVP_Dame.Models
                         GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn + 2).Color == EPiece.Empty)
                     {
                         GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn + 2).Color = EPiece.IsHighlighted;
-                        return true;
+                        canCapture = true;
                     }
                 }
 
@@ -222,12 +226,15 @@ namespace tema2_MVP_Dame.Models
                         GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color == EPiece.Empty)
                     {
                         GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color = EPiece.IsHighlighted;
-                        return true;
+                        canCapture = true;
                     }
                 }
+                if(canCapture)
+                    return true;
             }
             else if (GameBoard.GetPiece(sourcePieceRow, sourcePieceColumn).Color == EPiece.White)
             {
+                bool canCapture = false;
                 if (sourcePieceRow + 1 < 8 && sourcePieceColumn + 1 < 8 &&
                     (GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.Black ||
                     GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.BlackKing))
@@ -236,7 +243,7 @@ namespace tema2_MVP_Dame.Models
                         GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn + 2).Color == EPiece.Empty)
                     {
                         GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn + 2).Color = EPiece.IsHighlighted;
-                        return true;
+                        canCapture = true;
                     }
                 }
 
@@ -248,12 +255,15 @@ namespace tema2_MVP_Dame.Models
                         GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn - 2).Color == EPiece.Empty)
                     {
                         GameBoard.GetPiece(sourcePieceRow + 2, sourcePieceColumn - 2).Color = EPiece.IsHighlighted;
-                        return true;
+                        canCapture = true;
                     }
                 }
+                if(canCapture)
+                    return true;
             }
             else if (GameBoard.GetPiece(sourcePieceRow, sourcePieceColumn).Color == EPiece.Black)
             {
+                bool canCapture = false;
                 if (sourcePieceRow - 1 >= 0 && sourcePieceColumn + 1 < 8 &&
                     (GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.White ||
                      GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.WhiteKing))
@@ -262,7 +272,7 @@ namespace tema2_MVP_Dame.Models
                         GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn + 2).Color == EPiece.Empty)
                     {
                         GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn + 2).Color = EPiece.IsHighlighted;
-                        return true;
+                        canCapture = true;
                     }
                 }
 
@@ -274,9 +284,11 @@ namespace tema2_MVP_Dame.Models
                         GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color == EPiece.Empty)
                     {
                         GameBoard.GetPiece(sourcePieceRow - 2, sourcePieceColumn - 2).Color = EPiece.IsHighlighted;
-                        return true;
+                        canCapture = true;
                     }
                 }
+                if(canCapture)
+                    return true;
             }
             return false;
         }
@@ -674,7 +686,7 @@ namespace tema2_MVP_Dame.Models
             ResetHighlightedCells();
 
             //if the black player forced the white one the first to have all his pieces blocked, the black player wins
-            if(IsBlackTurn)
+            if (IsBlackTurn)
             {
                 if (whiteHighlightedPiecesCounter == 0)
                 {
@@ -688,7 +700,7 @@ namespace tema2_MVP_Dame.Models
                     return EPiece.White;
                 }
             }
-            
+
             return EPiece.Empty;
         }
     }
