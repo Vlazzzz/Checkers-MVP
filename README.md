@@ -15,6 +15,7 @@ Welcome to my C# Checkers Game repository! 🚀</p>
 </ul>
 
 <h2>Screenshots:</h2>
-<!-- Add your screenshots here -->
+![image](https://github.com/Vlazzzz/Checkers-MVP/assets/132906534/ab8515c5-4c86-4624-8470-5f0ee182d89d)
+
 
 <p>Feel free to explore the code and contribute to make this game even better! 🎉</p>
