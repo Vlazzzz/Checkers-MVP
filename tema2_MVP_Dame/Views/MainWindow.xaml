@@ -40,6 +40,7 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+
         <TextBlock HorizontalAlignment="Center" Margin="0,-121,0,0" TextWrapping="Wrap" Text="CHECKERS" VerticalAlignment="Top" Height="91" Width="298" TextAlignment="Center" FontSize="90" FontFamily="Bahnschrift SemiBold Condensed" FontWeight="Bold" RenderTransformOrigin="0.489,0.216"/>
 
         <!-- Add the image buttons -->
@@ -82,6 +83,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
+
         <TextBlock x:Name="WinHistoryBlack" Foreground="Black" FontFamily="Bahnschrift SemiBold Condensed" FontSize="30" Text="{Binding WinHistoryBlackText}" HorizontalAlignment="Left" Margin="27,0,0,-86" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="27" Grid.Row="1"/>
         <TextBlock x:Name="WinHistoryWhite" Foreground="White" FontFamily="Bahnschrift SemiBold Condensed" FontSize="30" Text="{Binding WinHistoryWhiteText}" HorizontalAlignment="Left" Margin="81,0,0,-86" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="32" Grid.Row="1"/>
         <TextBlock Foreground="Black" FontFamily="Bahnschrift SemiBold Condensed" FontSize="28" Text="Win History" HorizontalAlignment="Left" Margin="10,0,0,-58" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="39" Width="119" Grid.Row="1"/>

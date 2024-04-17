@@ -11,8 +11,6 @@ namespace tema2_MVP_Dame.Models
     public class Game
     {
         public Board GameBoard { get; set; }
-        public Player Player1 { get; set; }
-        public Player Player2 { get; set; }
         public bool IsBlackTurn { get; internal set; }
 
         public int black_pieces_remaining, white_pieces_remaining;
@@ -116,6 +114,84 @@ namespace tema2_MVP_Dame.Models
             }
 
             CapturePieceCheck(sourcePieceRow, sourcePieceColumn);
+        }
+
+        void ShowNormalPiecePotentialMoves(int sourcePieceRow, int sourcePieceColumn)
+        {
+            Piece piece = GameBoard.GetPiece(sourcePieceRow, sourcePieceColumn);
+            if (piece.Color == EPiece.White)
+            {
+                // Check if the source piece is on the left edge of the board
+                if (sourcePieceColumn == 0)
+                {
+                    if (sourcePieceRow + 1 < 8 && GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color ==
+                        EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color = EPiece.IsHighlighted;
+                    }
+                }
+                // Check if the source piece is on the right edge of the board
+                else if (sourcePieceColumn == 7)
+                {
+                    if (sourcePieceRow + 1 < 8 && GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color ==
+                        EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
+                    }
+                }
+                // Otherwise, check both directions
+                else
+                {
+                    if (sourcePieceRow + 1 < 8 && sourcePieceColumn + 1 < 8 &&
+                        GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color = EPiece.IsHighlighted;
+                    }
+
+                    if (sourcePieceRow + 1 < 8 && sourcePieceColumn - 1 >= 0 &&
+                        GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
+                    }
+                }
+            }
+            else if (piece.Color == EPiece.Black)
+            {
+                // Check if the source piece is on the left edge of the board
+                if (sourcePieceColumn == 0)
+                {
+                    if (sourcePieceRow - 1 >= 0 &&
+                        GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color = EPiece.IsHighlighted;
+                        return;
+                    }
+                }
+
+                // Check if the source piece is on the right edge of the board
+                if (sourcePieceColumn == 7)
+                {
+                    if (sourcePieceRow - 1 >= 0 &&
+                        GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color == EPiece.Empty)
+                    {
+                        GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
+                        return;
+                    }
+                }
+
+                // Otherwise, check both directions
+                if (sourcePieceRow - 1 >= 0 && sourcePieceColumn + 1 < 8 &&
+                    GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.Empty)
+                {
+                    GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color = EPiece.IsHighlighted;
+                }
+
+                if (sourcePieceRow - 1 >= 0 && sourcePieceColumn - 1 >= 0 &&
+                    GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color == EPiece.Empty)
+                {
+                    GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
+                }
+            }
         }
 
         public bool CapturePieceCheck(int sourcePieceRow, int sourcePieceColumn)
@@ -288,84 +364,6 @@ namespace tema2_MVP_Dame.Models
             return false;
         }
 
-        void ShowNormalPiecePotentialMoves(int sourcePieceRow, int sourcePieceColumn)
-        {
-            Piece piece = GameBoard.GetPiece(sourcePieceRow, sourcePieceColumn);
-            if (piece.Color == EPiece.White)
-            {
-                // Check if the source piece is on the left edge of the board
-                if (sourcePieceColumn == 0)
-                {
-                    if (sourcePieceRow + 1 < 8 && GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color ==
-                        EPiece.Empty)
-                    {
-                        GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color = EPiece.IsHighlighted;
-                    }
-                }
-                // Check if the source piece is on the right edge of the board
-                else if (sourcePieceColumn == 7)
-                {
-                    if (sourcePieceRow + 1 < 8 && GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color ==
-                        EPiece.Empty)
-                    {
-                        GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
-                    }
-                }
-                // Otherwise, check both directions
-                else
-                {
-                    if (sourcePieceRow + 1 < 8 && sourcePieceColumn + 1 < 8 &&
-                        GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color == EPiece.Empty)
-                    {
-                        GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn + 1).Color = EPiece.IsHighlighted;
-                    }
-
-                    if (sourcePieceRow + 1 < 8 && sourcePieceColumn - 1 >= 0 &&
-                        GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color == EPiece.Empty)
-                    {
-                        GameBoard.GetPiece(sourcePieceRow + 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
-                    }
-                }
-            }
-            else if (piece.Color == EPiece.Black)
-            {
-                // Check if the source piece is on the left edge of the board
-                if (sourcePieceColumn == 0)
-                {
-                    if (sourcePieceRow - 1 >= 0 &&
-                        GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.Empty)
-                    {
-                        GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color = EPiece.IsHighlighted;
-                        return;
-                    }
-                }
-
-                // Check if the source piece is on the right edge of the board
-                if (sourcePieceColumn == 7)
-                {
-                    if (sourcePieceRow - 1 >= 0 &&
-                        GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color == EPiece.Empty)
-                    {
-                        GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
-                        return;
-                    }
-                }
-
-                // Otherwise, check both directions
-                if (sourcePieceRow - 1 >= 0 && sourcePieceColumn + 1 < 8 &&
-                    GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color == EPiece.Empty)
-                {
-                    GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn + 1).Color = EPiece.IsHighlighted;
-                }
-
-                if (sourcePieceRow - 1 >= 0 && sourcePieceColumn - 1 >= 0 &&
-                    GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color == EPiece.Empty)
-                {
-                    GameBoard.GetPiece(sourcePieceRow - 1, sourcePieceColumn - 1).Color = EPiece.IsHighlighted;
-                }
-            }
-        }
-
         public bool MovePiece(int sourcePieceRow, int sourcePieceColumn, int targetPieceRow, int targetPieceColumn)
         {
             ResetHighlightedCells();
@@ -391,15 +389,11 @@ namespace tema2_MVP_Dame.Models
             {
                 MessageBox.Show("Black wins", "Game Over", MessageBoxButton.OK, MessageBoxImage.Information);
                 UpdateWinHistoryInFile("../../../Resources/win_history.txt");
-                //GameBoard.ResetBoard();
-                //IsBlackTurn = true;
             }
             else if (IsGameOver() == EPiece.White)
             {
                 MessageBox.Show("White wins", "Game Over", MessageBoxButton.OK, MessageBoxImage.Information);
                 UpdateWinHistoryInFile("../../../Resources/win_history.txt");
-                //GameBoard.ResetBoard();
-                //IsBlackTurn = true;
             }
 
             return true; // Mutarea a fost efectuată cu succes
@@ -418,7 +412,6 @@ namespace tema2_MVP_Dame.Models
 
         private bool IsValidMove(int sourcePieceRow, int sourcePieceColumn, int targetPieceRow, int targetPieceColumn)
         {
-            // Implementează logica de validare a mutării aici
             // Verifică dacă mutarea este în limitele tablei, dacă este o mutare validă pentru piesa respectivă etc.
 
             Piece sourcePiece = GameBoard.GetPiece(sourcePieceRow, sourcePieceColumn);
@@ -595,7 +588,6 @@ namespace tema2_MVP_Dame.Models
 
         public EPiece IsGameOver()
         {
-            //implement the function that checks if the game is over
             //the game is over when one of the players has no more pieces on the board
             int whitePiecesCounter = 0, blackPiecesCounter = 0;
             for (int i = 0; i < 8; i++)
@@ -694,28 +686,16 @@ namespace tema2_MVP_Dame.Models
         public void ResetHighlightedCells()
         {
             // Reset previously highlighted cells back to their original color
-            foreach (var piece in GameBoard)
+            for (int i = 0; i < 8; i++)
             {
-                if (piece.Color == EPiece.IsHighlighted)
+                for (int j = 0; j < 8; j++)
                 {
-                    piece.Color = EPiece.Empty;
+                    if (GameBoard.GetPiece(i, j).Color == EPiece.IsHighlighted)
+                    {
+                        GameBoard.GetPiece(i, j).Color = EPiece.Empty;
+                    }
                 }
             }
         }
     }
 }
-
-//bug: daca apas pe orice linie incepand cu a doua si ultima coloana si am piesa alba rege, da crash
-//bug: nu pot captura piese cu piesele rege pe ultima coloana
-//nu pot captura in sus stanga piesa neagra rege cu piesa alba rege; dupa ce nu pot captura piesa, in urmatoarea runda imi apare ca highlight pozitia de mai devreme unde ar fi trebuit sa mut
-//la fel si pentru piesa neagra rege;
-//BUG PENTRU POZITIA URMATOARE: daca piesa alba se afla stanga sus si piesa neagra se afla in dreapta jos nu pot captura piesa alba cu piesa neagra
-//                              daca mut in 2 mutari dreapta sus si piesa neagra stanga jos, o sa pot captura piesa alba cu piesa neagra DAR
-//                              DAR, voi putea face si mutarea pe care nu o puteam face mai devreme, lucru care nu ar trebui sa se intample
-
-
-
-//!!! MAI AM DEIMPLEMENTAT URMATOARELE: LA INCEPUT VOI PUTEA ALEGE DACA VREAU SA JOC CU SARITURI MULTIPLE SAU NU(DACA NU, VOI DEZACTIVA BUTONUL DE END TURN DE sus stanga), lucru pe care il voi
-//                                                                          tine minte si intr-un fisier pentru a pastra aceasta setare pentru urmatoarea rulare a jocului
-//                                      TREBUIE SA AFISEZ CATE PIESE MAI ARE FIECARE JUCATOR
-//                                      DE ELIMINAT DIN CONSTRUCTOR jucatorii(PLAYER1 si PLAYER2) si de sters clasa PLAYER

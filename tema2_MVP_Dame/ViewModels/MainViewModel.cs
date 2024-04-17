@@ -216,11 +216,9 @@ namespace tema2_MVP_Dame.ViewModels
         bool firstClick = false, secondClick = false;
         int firstRow, firstColumn, secondRow, secondColumn; 
         
-        //problema e ca daca mut o piesa si dau switch turn imi schimba tura inapoi in piesa de mai devreme
-        //dar daca nu mut nimic si dau switch turn, nu se schimba tura, deci asa e corect
         private void SwitchTurn(object parameter)
         {
-            if(pieceCaptured == true)
+            if(pieceCaptured)
             {
                 game.SwitchTurn();
                 CurrentTurnImage = game.IsBlackTurn ? "/Resources/black_piece.png" : "/Resources/white_piece.png";
@@ -233,9 +231,6 @@ namespace tema2_MVP_Dame.ViewModels
                 UpdateCells();
             }
         }
-
-        //daca fac mutare multipla si nu mai vreau sa mut piesa si apas pe orice piesa astfel incat sa resetez clickurile
-        //si dau switch turn, nu mai merge sa schimb tura; merge doaar cand inca pozitiile sunt highlighted
 
         private bool canSwitchTurn = false;
         private bool pieceCaptured = false;
@@ -257,6 +252,7 @@ namespace tema2_MVP_Dame.ViewModels
                 secondClick = true;
             }
 
+            //la mutarea multipla
             if (firstClick && secondClick && pieceCaptured)
             {
                 if (game.GameBoard.GetPiece(secondRow, secondColumn).Color != EPiece.IsHighlighted)

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace tema2_MVP_Dame.Models
 {
-    public class Board : IEnumerable<Piece>
+    public class Board
     {
         private readonly Piece[,] squares;
 
@@ -40,19 +40,6 @@ namespace tema2_MVP_Dame.Models
                 squares[5, col] = new Piece(EPiece.Black);
                 squares[7, col] = new Piece(EPiece.Black);
             }
-        }
-
-        public IEnumerator<Piece> GetEnumerator()
-        {
-            foreach (Piece piece in squares)
-            {
-                yield return piece;
-            }
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
         }
 
         internal void MovePiece(int sourceRow, int sourceColumn, int targetRow, int targetColumn)
