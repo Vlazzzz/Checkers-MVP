@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2il6AzExV7er+ktG6yzaXbFmEMQYccnJzUxv15ppQ+LkX7/PITO9digDfP4BqJ7gOFCVGSa1TRuMFFPGF1qsZQ==",
+  "dgSpecHash": "k/XwrBT3DpPR9Gr+Qe0MyvB6zA+miLQT6QfDCG9/7NlTGltTsA1qfJG1rPBcrZi3zDIg/+k1JuLLGm5M7GSKoQ==",
   "success": true,
-  "projectFilePath": "D:\\facultate\\II\\SEM II\\MVP\\tema1_dictionar\\Checkers-MVP\\tema2_MVP_Dame\\tema2_MVP_Dame.csproj",
+  "projectFilePath": "D:\\facultate\\II\\SEM II\\MVP\\Checkers-MVP\\tema2_MVP_Dame\\tema2_MVP_Dame.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vladu\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
