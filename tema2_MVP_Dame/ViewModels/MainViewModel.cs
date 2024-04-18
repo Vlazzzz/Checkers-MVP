@@ -229,6 +229,7 @@ namespace tema2_MVP_Dame.ViewModels
                 secondRow = -1;
                 secondColumn = -1;
                 UpdateCells();
+                pieceCaptured = false;
             }
         }
 
